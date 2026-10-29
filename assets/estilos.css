@@ -10,7 +10,7 @@ a{color:#111111}a:hover{color:#8B0000}
 .btn-light{background:#FFFFFF;color:#111111}
 .btn-light:hover{color:#8B0000}
 .sticker{display:inline-block;padding:8px 16px;border:2px solid #1B6B35;border-radius:999px;font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;letter-spacing:.3px;white-space:nowrap;color:#111111}
-.display{font-family:'Unbounded',sans-serif;font-weight:800;letter-spacing:-.5px}
+.display{font-family:'Unbounded',sans-serif;font-weight:800;letter-spacing:-.5px;overflow-wrap:normal}
 .top{background:#FFFFFF;border-bottom:3px solid #1B6B35}
 .topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding-top:12px;padding-bottom:12px}
 .logo{order:1;display:inline-flex}
