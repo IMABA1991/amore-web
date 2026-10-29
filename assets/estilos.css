@@ -4,7 +4,7 @@ body{margin:0;background:#FFFFFF;font-family:'Manrope',system-ui,sans-serif;colo
 img{max-width:100%}
 a{color:#111111}a:hover{color:#8B0000}
 .wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
-.card{border:2px solid #1B6B35;border-radius:22px;box-shadow:6px 6px 0 #1B6B35}
+.card{min-width:0;overflow-wrap:anywhere;border:2px solid #1B6B35;border-radius:22px;box-shadow:6px 6px 0 #1B6B35}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:2px solid #1B6B35;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;box-shadow:4px 4px 0 #1B6B35;color:#FFFFFF;background:#8B0000;text-align:center}
 .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #1B6B35;color:#FFFFFF}
 .btn-light{background:#FFFFFF;color:#111111}
