@@ -1,0 +1,30 @@
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;font-family:'Manrope',system-ui,sans-serif;color:#111111}
+img{max-width:100%}
+a{color:#111111}a:hover{color:#8B0000}
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.card{border:2px solid #1B6B35;border-radius:22px;box-shadow:6px 6px 0 #1B6B35}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:2px solid #1B6B35;border-radius:999px;font-weight:800;font-size:16px;text-decoration:none;box-shadow:4px 4px 0 #1B6B35;color:#FFFFFF;background:#8B0000;text-align:center}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #1B6B35;color:#FFFFFF}
+.btn-light{background:#FFFFFF;color:#111111}
+.btn-light:hover{color:#8B0000}
+.sticker{display:inline-block;padding:8px 16px;border:2px solid #1B6B35;border-radius:999px;font-family:'Unbounded',sans-serif;font-weight:700;font-size:13px;letter-spacing:.3px;white-space:nowrap;color:#111111}
+.display{font-family:'Unbounded',sans-serif;font-weight:800;letter-spacing:-.5px}
+.top{background:#FFFFFF;border-bottom:3px solid #1B6B35}
+.topbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding-top:12px;padding-bottom:12px}
+.logo{order:1;display:inline-flex}
+.logo img{height:60px;width:auto;display:block}
+.navlinks{order:2;display:flex;align-items:center;gap:20px}
+.navlinks a{text-decoration:none;font-weight:800;font-size:15px;padding:10px 4px;white-space:nowrap}
+.navlinks a.activo{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px;color:#1B6B35}
+.top .btn{order:3}
+.flotante{position:fixed;right:20px;bottom:20px;width:64px;height:64px;padding:0;z-index:10}
+.seal{color:#111111;position:absolute;left:12px;top:12px;padding:6px 12px;border:2px solid #1B6B35;border-radius:999px;background:#FFFFFF;font-family:'Unbounded',sans-serif;font-weight:700;font-size:11px;transform:rotate(-4deg)}
+details summary{cursor:pointer}
+@media (max-width:700px){
+ .logo img{height:48px}
+ .navlinks{order:3;width:100%;overflow-x:auto;gap:18px;padding-bottom:2px}
+ .top .btn{order:2;min-height:44px;padding:0 16px}
+ .card{box-shadow:4px 4px 0 #1B6B35}
+}
