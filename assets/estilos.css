@@ -41,3 +41,24 @@ details summary{cursor:pointer}
  .tabla-talles th,.tabla-talles td{padding:8px 4px}
  .tabla-talles th[scope=row]{padding-left:8px}
 }
+/* Menú lateral (solo celular) */
+.menu-btn,.velo,.lateral{display:none}
+@media (max-width:700px){
+ .top{position:sticky;top:0;z-index:20;transition:transform .25s ease}
+ .top.oculto{transform:translateY(-100%)}
+ .top .navlinks{display:none}
+ .menu-btn{display:inline-flex;order:3;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:2px solid #1B6B35;border-radius:12px;background:#FFFFFF;color:#111111;box-shadow:3px 3px 0 #1B6B35;cursor:pointer}
+ .topbar{flex-wrap:nowrap}
+ .logo{margin-right:auto}
+ .velo{display:block;position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+ .velo.abierto{opacity:1;visibility:visible}
+ .lateral{display:flex;flex-direction:column;gap:4px;position:fixed;top:0;right:0;bottom:0;z-index:31;width:min(82vw,320px);padding:16px 20px 24px;background:#FFFFFF;border-left:3px solid #1B6B35;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility .25s}
+ .lateral.abierto{transform:none;visibility:visible}
+ .lateral .cerrar{align-self:flex-end;width:44px;height:44px;border:0;background:none;color:#111111;cursor:pointer;margin-bottom:8px}
+ .lateral a.item{display:block;padding:14px 4px;border-bottom:1px solid #DDE8DF;text-decoration:none;font-weight:800;font-size:18px}
+ .lateral a.item.activo{color:#1B6B35;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}
+ .lateral .btn{margin-top:20px}
+}
+@media (max-width:700px){.logo,.menu-btn,.top .btn{flex-shrink:0}}
+@media (max-width:380px){.top .btn{font-size:0;gap:0;width:46px;padding:0}}
+@media (max-width:360px){h1.display{font-size:27px !important}}
