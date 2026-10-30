@@ -28,3 +28,16 @@ details summary{cursor:pointer}
  .top .btn{order:2;min-height:44px;padding:0 16px}
  .card{box-shadow:4px 4px 0 #1B6B35}
 }
+.tabla-talles{overflow-x:auto;border:2px solid #1B6B35;border-radius:14px;background:#FFFFFF}
+.tabla-talles table{border-collapse:collapse;width:100%;font-size:15px;text-align:center}
+.tabla-talles caption{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.tabla-talles th,.tabla-talles td{padding:9px 7px;border-top:1px solid #DDE8DF;white-space:nowrap}
+.tabla-talles tr:first-child th{border-top:0;background:#1B6B35;color:#FFFFFF;font-weight:800}
+.tabla-talles th[scope=row]{position:sticky;left:0;background:#E3F1E5;text-align:left;font-weight:800;padding-left:12px}
+.tabla-talles tr:first-child th[scope=row]{background:#14552A}
+.tabla-talles{background:linear-gradient(to left,#FFFFFF 30%,rgba(255,255,255,0)) right/24px 100% no-repeat local,radial-gradient(farthest-side at 100% 50%,rgba(27,107,53,.35),rgba(27,107,53,0)) right/12px 100% no-repeat scroll,#FFFFFF}
+@media (max-width:700px){
+ .tabla-talles table{font-size:14px}
+ .tabla-talles th,.tabla-talles td{padding:8px 4px}
+ .tabla-talles th[scope=row]{padding-left:8px}
+}
