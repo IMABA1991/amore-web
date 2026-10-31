@@ -87,3 +87,4 @@ details summary{cursor:pointer}
 .form-arrep .opc{font-weight:600;color:#555555}
 .form-arrep .acciones{display:flex;flex-wrap:wrap;gap:12px}
 .form-arrep .aviso{margin:0;font-size:15px;color:#8B0000;font-weight:700;min-height:1em}
+.data-fiscal img{display:block;width:60px;height:auto;background:#FFFFFF;border-radius:4px}
