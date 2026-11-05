@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diseñá tu campera de egresados | AMORE Sublimación</title>
+<meta name="description" content="Elegí el modelo, los colores del curso y subí el logo. Mirá cómo queda sublimado o bordado y conocé un precio estimado al instante.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AMORE Sublimación">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Diseñá tu campera de egresados | AMORE Sublimación">
+<meta property="og:description" content="Elegí el modelo, los colores del curso y subí el logo. Mirá cómo queda sublimado o bordado y conocé un precio estimado al instante.">
+<meta property="og:url" content="https://imaba1991.github.io/amore-web/disenador.html">
+<meta property="og:image" content="https://imaba1991.github.io/amore-web/assets/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icono-192.png">
+<link rel="apple-touch-icon" href="assets/icono-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&amp;family=Manrope:wght@400;600;700;800&amp;family=Graduate&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/estilos.css">
+<style>
+.dz{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:32px;align-items:start;padding-top:36px;padding-bottom:72px}
+.dz-vista{position:sticky;top:16px;background:#FFFFFF;padding:16px;display:flex;flex-direction:column;gap:12px}
+.dz-vista svg{width:100%;height:auto;max-height:68vh;display:block;touch-action:pan-y;user-select:none;-webkit-user-select:none;background:radial-gradient(circle at 50% 40%,#FFFFFF 0,#F7EEEE 100%);border-radius:14px}
+.dz-barra{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+.seg{display:inline-flex;border:2px solid #1B6B35;border-radius:999px;overflow:hidden;background:#FFFFFF}
+.seg button{font:inherit;font-weight:800;font-size:14px;border:0;background:none;padding:9px 14px;cursor:pointer;color:#111111;min-height:40px}
+.seg button[aria-pressed=true]{background:#1B6B35;color:#FFFFFF}
+.dz-tip{margin:0;font-size:13px;color:#555555;text-align:center}
+.dz-panel{display:flex;flex-direction:column;gap:22px;min-width:0}
+.paso{background:#FFFFFF;padding:20px;display:flex;flex-direction:column;gap:14px}
+.paso h2{margin:0;font-family:'Unbounded',sans-serif;font-weight:800;font-size:19px;color:#1B6B35;display:flex;gap:10px;align-items:center}
+.paso h2 .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#1E961E;color:#FFFFFF;font-size:14px;flex-shrink:0}
+.modelos{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.modelos button{font:inherit;font-weight:800;font-size:12px;border:2px solid #DDE8DF;border-radius:14px;background:#FFFFFF;padding:6px 2px 8px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:#111111}
+.modelos button[aria-pressed=true]{border-color:#1B6B35;background:#E3F1E5;box-shadow:3px 3px 0 #1B6B35}
+.modelos svg{width:100%;height:auto;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip-btn{font:inherit;font-weight:700;font-size:14px;border:2px solid #1B6B35;border-radius:999px;background:#FFFFFF;padding:7px 12px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;color:#111111;min-height:40px}
+.chip-btn[aria-pressed=true]{background:#1B6B35;color:#FFFFFF}
+.punto{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(0,0,0,.35);display:inline-block;flex-shrink:0}
+.gama .punto{width:14px;height:14px;margin-right:-6px}
+.gama .punto:last-of-type{margin-right:4px}
+.paleta{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:8px}
+.paleta button{aspect-ratio:1;border-radius:50%;border:2px solid rgba(0,0,0,.25);cursor:pointer;padding:0;min-width:36px}
+.paleta button[aria-pressed=true]{outline:3px solid #8B0000;outline-offset:2px}
+.paleta label{aspect-ratio:1;border-radius:50%;border:2px dashed #1B6B35;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:800;font-size:18px;position:relative;overflow:hidden}
+.paleta label input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.nombre-color{margin:0;font-size:14px;color:#555555}
+.acciones-el{display:flex;flex-wrap:wrap;gap:10px}
+.lista-el{display:flex;flex-direction:column;gap:8px}
+.lista-el button{font:inherit;text-align:left;border:2px solid #DDE8DF;border-radius:12px;background:#FFFFFF;padding:8px 12px;cursor:pointer;display:flex;gap:10px;align-items:center;color:#111111;min-height:48px}
+.lista-el button[aria-pressed=true]{border-color:#8B0000;background:#FFF6F6}
+.lista-el img{width:34px;height:34px;object-fit:contain;background:#EEEEEE;border-radius:6px}
+.lista-el .tx{font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lista-el .sub{font-size:13px;color:#555555;font-weight:600}
+.editor{border:2px dashed #1B6B35;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.campo{display:flex;flex-direction:column;gap:6px;font-weight:800;font-size:14px}
+.campo input[type=text],.campo select,.campo input[type=number]{font:inherit;font-weight:600;font-size:16px;padding:10px 12px;border:2px solid #1B6B35;border-radius:12px;background:#FFFFFF;color:#111111;width:100%}
+.campo input[type=range]{width:100%;accent-color:#1B6B35}
+.fila{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.check{display:flex;gap:10px;align-items:center;font-weight:700;font-size:15px}
+.check input{width:20px;height:20px;accent-color:#1B6B35}
+.aviso-hilos{margin:0;font-size:14px;background:#E3F1E5;border-radius:10px;padding:8px 12px}
+.cant{display:flex;align-items:center;gap:8px}
+.cant button{width:44px;height:44px;border-radius:50%;border:2px solid #1B6B35;background:#FFFFFF;font-size:22px;font-weight:800;cursor:pointer;color:#111111}
+.cant input{text-align:center;max-width:110px}
+.precio{background:#1B6B35;color:#FFFFFF;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.precio .grande{font-family:'Unbounded',sans-serif;font-weight:800;font-size:clamp(28px,4vw,38px);line-height:1.1}
+.precio .chico{font-size:15px;opacity:.92}
+.detalle{margin:0;padding:0;list-style:none;font-size:14px;display:flex;flex-direction:column;gap:4px}
+.detalle li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed #DDE8DF;padding-bottom:4px}
+.bonif{background:#E3F1E5;border:2px solid #1E961E;border-radius:14px;padding:12px 14px;font-size:14px;line-height:1.5}
+.bonif ul{margin:6px 0;padding-left:20px}
+.bonif a{color:#1B6B35;font-weight:800}
+.nota{margin:0;font-size:13px;color:#555555;line-height:1.5}
+.local{background:#FFF4CC;border:2px solid #8B6B00;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.local h3{margin:0;font-size:16px}
+.lineas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.lineas button{font:inherit;text-align:left;border:2px solid #DDE8DF;border-radius:14px;background:#FFFFFF;padding:10px 12px;cursor:pointer;display:flex;flex-direction:column;gap:2px;color:#111111}
+.lineas button b{font-size:15px}
+.lineas button span{font-size:13px;color:#555555}
+.lineas button[aria-pressed=true]{border-color:#1B6B35;background:#E3F1E5;box-shadow:3px 3px 0 #1B6B35}
+.aviso-revisar{margin:0;font-size:14px;line-height:1.5;background:#FDE8E8;border:2px solid #8B0000;border-radius:10px;padding:8px 12px}
+.detalle li.revisar{color:#8B0000;font-weight:700}
+.aviso-linea{margin:0;font-size:14px;line-height:1.5;background:#FFF6E0;border-left:4px solid #8B6B00;border-radius:8px;padding:8px 12px}
+/* Barra de desplazamiento: más gruesa y siempre visible */
+html{scrollbar-width:auto;scrollbar-color:#1B6B35 #E3F1E5}
+::-webkit-scrollbar{width:16px}
+::-webkit-scrollbar-track{background:#E3F1E5}
+::-webkit-scrollbar-thumb{background:#1B6B35;border-radius:10px;border:3px solid #E3F1E5}
+#barra{display:none;position:fixed;top:0;right:0;bottom:0;width:30px;z-index:25;background:rgba(227,241,229,.92);border-left:1px solid #B9D8C0;touch-action:none}
+#pulgar{position:absolute;top:0;left:4px;right:4px;min-height:64px;border-radius:12px;background:#1B6B35;box-shadow:inset 0 0 0 2px #FFFFFF}
+#pulgar::before{content:'';position:absolute;left:50%;top:50%;width:10px;height:14px;transform:translate(-50%,-50%);border-top:2px solid #FFFFFF;border-bottom:2px solid #FFFFFF}
+@media (pointer:coarse){ #barra{display:block} body{padding-right:30px} }
+@media (pointer:coarse) and (max-width:440px){ .top .btn{font-size:0;gap:0;width:46px;padding:0} }
+.local{display:none}
+.oculto-x{display:none !important}
+@media (max-width:860px){
+ .dz{grid-template-columns:minmax(0,1fr);gap:18px;padding-top:12px}
+ .dz-vista{top:0;z-index:5;padding:10px;border-radius:0 0 18px 18px;margin:0 -24px;border-left:0;border-right:0;border-top:0}
+ .dz-vista svg{max-height:38vh}
+ .modelos{grid-template-columns:repeat(5,minmax(64px,1fr));overflow-x:auto}
+}
+</style>
+</head>
+<body>
+<header class="top">
+<div class="wrap topbar">
+<a class="logo" href="index.html" aria-label="AMORE Sublimación, inicio"><img width="575" height="230" src="assets/logo.jpg" alt="AMORE Sublimación"></a>
+<nav class="navlinks" aria-label="Principal">
+<a href="egresados.html">Egresados</a>
+<a href="disenador.html" class="activo" aria-current="page">Diseñador</a>
+<a href="clubes.html">Clubes</a>
+<a href="regalos.html">Regalos</a>
+<a href="talles.html">Talles</a>
+<a href="quienes-somos.html">Quiénes somos</a>
+</nav>
+<button class="menu-btn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-lateral"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<a class="btn" href="https://wa.me/5491155631332?text=Hola%21%20Vengo%20del%20dise%C3%B1ador%20de%20la%20web."><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"></path></svg> WhatsApp</a>
+</div>
+</header>
+<div class="velo"></div>
+<nav class="lateral" id="menu-lateral" aria-label="Menú">
+<button class="cerrar" type="button" aria-label="Cerrar menú"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+<a class="item" href="index.html">Inicio</a>
+<a class="item" href="egresados.html">Egresados</a>
+<a class="item activo" href="disenador.html" aria-current="page">Diseñador</a>
+<a class="item" href="clubes.html">Clubes</a>
+<a class="item" href="regalos.html">Regalos</a>
+<a class="item" href="talles.html">Talles</a>
+<a class="item" href="quienes-somos.html">Quiénes somos</a>
+<a class="btn" href="https://wa.me/5491155631332?text=Hola%21%20Vengo%20del%20dise%C3%B1ador%20de%20la%20web.">Escribinos por WhatsApp</a>
+</nav>
+<main>
+<section style="background: #F6E0E0; border-bottom: 2px solid #1B6B35">
+<div class="wrap" style="padding-top: 36px; padding-bottom: 36px; display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; flex-wrap: wrap; gap: 10px"><span class="sticker" style="background: #1E961E; transform: rotate(-3deg)">Diseñador</span><span class="sticker" style="background: #FFFFFF; transform: rotate(2deg)">Precio al instante</span></div>
+<h1 class="display" style="margin: 0; font-size: clamp(28px, 4vw, 46px); line-height: 1.08; color: #1B6B35">Diseñá la campera de tu curso</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; max-width: 640px">Elegí el modelo y los colores, subí el logo del curso y mirá cómo queda sublimado o bordado. Abajo te damos un precio estimado.</p>
+</div>
+</section>
+
+<div class="wrap dz">
+<div class="dz-vista card">
+<div class="dz-barra">
+<div class="seg" role="group" aria-label="Vista"><button type="button" data-vista="frente" aria-pressed="true">Frente</button><button type="button" data-vista="espalda" aria-pressed="false">Espalda</button></div>
+<div class="seg" role="group" aria-label="Línea"><button type="button" data-linea="deportiva" aria-pressed="true">Sublimado</button><button type="button" data-linea="premium" aria-pressed="false">Bordado</button></div>
+</div>
+<svg id="lienzo" viewBox="0 0 400 440" role="img" aria-label="Vista previa de la campera"></svg>
+<p class="dz-tip">Tocá un logo o texto y arrastralo para moverlo. Diseño de muestra: la prenda real puede variar.</p>
+</div>
+
+<div class="dz-panel">
+<section class="paso card" aria-labelledby="p1">
+<h2 id="p1"><span class="n">1</span>Línea, nivel y modelo</h2>
+<div class="lineas" role="group" aria-label="Línea">
+<button type="button" data-linea="deportiva" aria-pressed="true"><b>Línea Deportiva</b><span>Frisado, sublimado a todo color</span></button>
+<button type="button" data-linea="premium" aria-pressed="false"><b>Línea Premium</b><span>Algodón, bordado con hilo y relieve</span></button>
+</div>
+<div class="campo">Nivel del curso
+<div class="seg" role="group" aria-label="Nivel del curso" style="align-self:flex-start"><button type="button" data-nivel="jardin" aria-pressed="false">Jardín</button><button type="button" data-nivel="primaria" aria-pressed="true">Primaria</button><button type="button" data-nivel="secundaria" aria-pressed="false">Secundaria</button></div>
+<span class="nota" id="nivel-talles"></span>
+</div>
+<div class="modelos" id="modelos"></div>
+<div class="seg" role="group" aria-label="Prenda" style="align-self:flex-start"><button type="button" data-prenda="campera" aria-pressed="true">Campera</button><button type="button" data-prenda="buzo" aria-pressed="false">Buzo</button></div>
+</section>
+
+<section class="paso card" aria-labelledby="p2">
+<h2 id="p2"><span class="n">2</span>Colores del curso</h2>
+<p class="aviso-linea" id="aviso-colores"></p>
+<div>
+<p class="nombre-color" style="margin-bottom:8px">Combinaciones rápidas</p>
+<div class="chips" id="gamas"></div>
+</div>
+<div>
+<p class="nombre-color" style="margin-bottom:8px">O elegí parte por parte</p>
+<div class="chips" id="zonas"></div>
+</div>
+<div class="paleta" id="paleta"></div>
+<p class="nombre-color" id="nombre-color"></p>
+</section>
+
+<section class="paso card" aria-labelledby="p3">
+<h2 id="p3"><span class="n">3</span>Logos, nombres y textos</h2>
+<p class="aviso-linea" id="aviso-tam"></p>
+<div class="acciones-el">
+<label class="btn" style="cursor:pointer">Subir imagen<input type="file" id="subir" accept="image/*" style="display:none"></label>
+<button type="button" class="btn btn-light" id="add-texto">Agregar texto</button>
+</div>
+<div class="lista-el" id="lista-el"></div>
+<div class="editor oculto-x" id="editor"></div>
+</section>
+
+<section class="paso card" aria-labelledby="p4">
+<h2 id="p4"><span class="n">4</span>Precio estimado</h2>
+<div class="fila">
+<label class="campo">Combo
+<select id="combo">
+<option value="remera">Con remera</option>
+<option value="chomba">Con chomba</option>
+</select></label>
+<div class="campo">Cantidad de combos
+<div class="cant"><button type="button" id="menos" aria-label="Uno menos">−</button><input type="number" id="cant" min="1" max="500" value="20" inputmode="numeric" aria-label="Cantidad de combos"><button type="button" id="mas" aria-label="Uno más">+</button></div>
+</div>
+</div>
+<div class="precio" aria-live="polite">
+<span class="chico" id="p-linea"></span>
+<span class="grande" id="p-unidad"></span>
+<span class="chico" id="p-total"></span>
+</div>
+<ul class="detalle" id="p-detalle"></ul>
+<div class="bonif" id="bonif"></div>
+<p class="nota" id="p-nota"></p>
+<div class="acciones-el">
+<a class="btn" id="pedir" href="#" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+<button type="button" class="btn btn-light" id="bajar">Descargar diseño</button>
+</div>
+<p class="nota">Al pedir por WhatsApp se arma el mensaje con tu diseño. Descargá la imagen y mandala en el mismo chat.</p>
+</section>
+</div>
+</div>
+</main>
+<div id="barra" aria-hidden="true"><div id="pulgar"></div></div>
+<footer style="background: #1B6B35; color: #FFFFFF">
+<div class="wrap" style="padding-top: 56px; padding-bottom: 36px; display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px">
+<span class="display" style="font-size: 24px; color: #FFFFFF">AMORE Sublimación</span>
+<span style="font-size: 16px; line-height: 1.6">Prendas y regalos personalizados desde 2019. José C. Paz y alrededores.</span>
+<a href="quienes-somos.html" style="color: #FFFFFF; font-weight: 800; font-size: 16px; text-underline-offset: 4px">Quiénes somos y promotores autorizados</a>
+</div>
+<div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+<a href="https://wa.me/5491155631332" style="color: #FFFFFF">WhatsApp 11-5563-1332</a>
+<a href="https://instagram.com/amore_sublimacion" style="color: #FFFFFF">Instagram @amore_sublimacion</a>
+<a href="https://facebook.com/amoresub" style="color: #FFFFFF">Facebook /amoresub</a>
+<a href="mailto:Ventas@amoresublimacion.com.ar" style="color: #FFFFFF">Ventas@amoresublimacion.com.ar</a>
+</div>
+</div>
+<div class="legal">
+<div class="wrap legal-in">
+<div class="legal-links">
+<a class="btn btn-light legal-arrep" href="arrepentimiento.html">Botón de arrepentimiento</a>
+<a href="legales.html#terminos">Términos y condiciones</a>
+<a href="legales.html#cambios">Cambios, devoluciones y garantía</a>
+<a href="legales.html#privacidad">Política de privacidad</a>
+</div>
+<p><strong>Defensa de las y los consumidores.</strong> Para reclamos <a href="https://www.argentina.gob.ar/produccion/defensadelconsumidor/formulario" target="_blank" rel="noopener">ingresá acá</a>.</p>
+<p>Titular: Iván Marcelo Aballay · CUIT 20-36022571-3 · Responsable Monotributo · Domicilio fiscal: Lima 3618, José C. Paz, Provincia de Buenos Aires</p>
+<p>Consultas y reclamos: lunes a viernes de 9 a 18 h, por WhatsApp 11-5563-1332 o a Ventas@amoresublimacion.com.ar.</p>
+<p class="data-fiscal"><a href="http://qr.afip.gob.ar/?qr=3Qm3Oq3DayaBSJcXGnL0Tg,," target="_F960AFIPInfo" rel="noopener"><img src="https://www.afip.gob.ar/images/f960/DATAWEB.jpg" width="60" height="82" alt="Data Fiscal (ARCA)" loading="lazy"></a></p>
+<p class="legal-copy">© 2026 AMORE Sublimación. Todos los derechos reservados. Los textos, fotos, diseños y el logo de este sitio son de AMORE Sublimación y no pueden copiarse sin autorización.</p>
+</div>
+</div>
+</footer>
+<script src="assets/menu.js" defer></script>
+<script>
+// =====================================================================
+//  PRECIOS Y REGLAS — editá solo esta parte para actualizar el diseñador.
+//  Precios de lista por combo (campera o buzo + remera o chomba), en pesos.
+//  Fuente: planilla de precios de venta de Finanzas (actualizada 10/10/2026).
+// =====================================================================
+const PRECIOS = {
+  vigencia: 'noviembre de 2026',
+  lineas: {
+    deportiva: { nombre: 'Línea Deportiva', tela: 'frisado', tecnica: 'sublimado', jardin: 90000,  primaria: 100000, secundaria: 100000 },
+    premium:   { nombre: 'Línea Premium',   tela: 'algodón', tecnica: 'bordado',   jardin: 140000, primaria: 145000, secundaria: 145000 }
+  },
+  // Premium: 4 bordados en la campera que se repiten en la remera/chomba (8 en el combo).
+  // Cada bordado extra chico va en las dos prendas: $5.000 por prenda = $10.000 por combo.
+  bordado: { incluidos: 4, extraPorPrenda: 5000, prendas: 2, maxAncho: 25, maxAlto: 10 }, // tope en cm para textos bordados
+  sublimado: { maxLado: 36 },                                        // cm por estampa (plancha 38×38)
+  bonificados: {
+    minimoCombos: 10, hasta: '31 de diciembre de 2026',
+    porCurso: ['Bandera del curso de 3 m x 1,50 m', 'Un combo para sortear'],
+    porCombo: 'Remera de gimnasia con colegio, curso, "PROMO 2027" y nombre'
+  },
+  promo: 'PROMO 2027',
+  redondeo: 500,
+  whatsapp: '5491155631332'
+};
+const NIVELES = {
+  jardin:     { nombre: 'Jardín',     talles: 'Talles 4 al 16',  anchoRef: 40 },  // ancho de pecho de referencia (cm) para la escala
+  primaria:   { nombre: 'Primaria',   talles: 'Talles 4 al 3XL', anchoRef: 47 },
+  secundaria: { nombre: 'Secundaria', talles: 'Talles 4 al 3XL', anchoRef: 57 }
+};
+// =====================================================================
+
+// Colores: el frisado solo va en tonos claros (no se sublima sobre tela oscura)
+const PALETAS = {
+  premium: [
+    ['Blanco','#FFFFFF'],['Negro','#1A1A1A'],['Gris melange','#A9A9AB'],['Gris topo','#5E5B57'],
+    ['Azul marino','#1C2747'],['Azul francia','#1F4FB4'],['Celeste','#9CCBEA'],['Turquesa','#1BA6A6'],
+    ['Verde agua','#6FB3A6'],['Verde','#1E961E'],['Verde inglés','#1F4A33'],['Amarillo','#F5CF1F'],
+    ['Naranja','#EF7A1A'],['Rojo','#C8202E'],['Bordó','#6E1424'],['Rosa','#F2AFC4'],
+    ['Fucsia','#D6247A'],['Lila','#B9A3DB'],['Violeta','#6A3FA0'],['Beige','#D9C7A7'],['Marrón','#5A3A26']
+  ],
+  deportiva: [
+    ['Blanco','#FFFFFF'],['Gris perla','#D9D9DC'],['Celeste','#9CCBEA'],['Celeste bebé','#CDE6F7'],
+    ['Rosa','#F2AFC4'],['Rosa bebé','#F9D5E0'],['Lila','#B9A3DB'],['Lavanda','#DCD3F2'],
+    ['Verde agua','#9ED9CB'],['Menta','#C8EDD8'],['Amarillo pastel','#F8E58C'],['Durazno','#F8C9A6'],
+    ['Salmón','#F4B09A'],['Beige','#E6D8BC']
+  ]
+};
+const GAMAS = {
+  premium: [
+    ['Celeste y blanco', ['#9CCBEA','#FFFFFF','#1C2747']],
+    ['Bordó y gris',     ['#6E1424','#A9A9AB','#FFFFFF']],
+    ['Negro y amarillo', ['#1A1A1A','#F5CF1F','#FFFFFF']],
+    ['Marino y rojo',    ['#1C2747','#C8202E','#FFFFFF']],
+    ['Verde y blanco',   ['#1F4A33','#FFFFFF','#1E961E']],
+    ['Violeta y negro',  ['#6A3FA0','#1A1A1A','#FFFFFF']],
+    ['Rosa y gris',      ['#F2AFC4','#5E5B57','#FFFFFF']]
+  ],
+  deportiva: [
+    ['Celeste y blanco',    ['#9CCBEA','#FFFFFF','#CDE6F7']],
+    ['Rosa y blanco',       ['#F2AFC4','#FFFFFF','#F9D5E0']],
+    ['Lila y gris perla',   ['#B9A3DB','#D9D9DC','#FFFFFF']],
+    ['Verde agua y blanco', ['#9ED9CB','#FFFFFF','#C8EDD8']],
+    ['Amarillo y celeste',  ['#F8E58C','#9CCBEA','#FFFFFF']],
+    ['Durazno y beige',     ['#F8C9A6','#E6D8BC','#FFFFFF']]
+  ]
+};
+const TODOS = [...PALETAS.premium, ...PALETAS.deportiva];
+const nombreColor = h => (TODOS.find(p => p[1].toLowerCase() === h.toLowerCase()) || [h.toUpperCase()])[0];
+
+// ---------- Dibujo base (caricatura) ----------
+const G = {
+  cuerpo:  'M168,72 Q200,90 232,72 L272,86 Q284,92 282,120 L280,162 L282,376 L118,376 L120,162 L118,120 Q116,92 128,86 Z',
+  cuerpoB: 'M168,72 Q200,80 232,72 L272,86 Q284,92 282,120 L280,162 L282,376 L118,376 L120,162 L118,120 Q116,92 128,86 Z',
+  manga:   'M128,86 Q98,94 88,124 L56,342 L98,348 L120,162 L118,120 Q116,96 128,86 Z',
+  puno:    'M56,342 L98,348 L95,376 L58,372 Z',
+  cintura: 'M118,376 L282,376 L284,404 L116,404 Z',
+  capF:    'M146,98 C128,50 158,13 200,12 C242,13 272,50 254,98 Z',
+  forro:   'M166,86 C156,54 176,31 200,30 C224,31 244,54 234,86 Q214,100 200,104 Q186,100 166,86 Z',
+  capB:    'M146,100 C128,44 160,12 200,12 C240,12 272,44 254,100 Q250,140 238,158 Q200,172 162,158 Q150,140 146,100 Z',
+  cuelloF: 'M154,62 Q200,96 246,62 L236,76 Q200,102 164,76 Z',
+  cuelloB: 'M156,64 Q200,82 244,64 L234,76 Q200,90 166,76 Z',
+  bolsillo:'M148,292 L252,292 L268,368 L132,368 Z'
+};
+const ANCHO_CUERPO = 162; // unidades del dibujo entre costados
+const ESPEJO = 'matrix(-1,0,0,1,400,0)';
+const TINTA = '#1D2A22';
+
+// Cada modelo: zonas editables [clave, nombre, rol para combinaciones (-1 = no cambia), color por defecto en Premium]
+const MODELOS = {
+  clasica: {
+    nombre: 'Clásica', tipo: 'zip', gamaDeportiva: 0,
+    zonas: [['superior','Arriba y capucha',0,'#9CCBEA'],['inferior','Abajo',1,'#A9A9AB'],['franja','Franja',2,'#1F4FB4'],['filete','Filete',2,'#1C2747'],['cordon','Cordones',-1,'#FFFFFF']],
+    f: { cuerpo:'inferior', mangas:'inferior', punos:'inferior', cintura:'inferior', capucha:'superior', cordon:'cordon' },
+    capas: [
+      { d:'M0,0 H400 V204 L200,222 L0,204 Z', k:'superior' },
+      { d:'M0,204 L200,222 L400,204 V228 L200,246 L0,228 Z', k:'franja' },
+      { d:'M0,234 L200,252 L400,234 V240 L200,258 L0,240 Z', k:'filete' }
+    ]
+  },
+  college: {
+    nombre: 'College', tipo: 'college', gamaDeportiva: 2,
+    zonas: [['cuerpo','Cuerpo',0,'#6F6F72'],['mangas','Mangas',1,'#FFFFFF'],['punos','Cuello, puños y cintura',0,'#6F6F72'],['rayas','Rayas',1,'#FFFFFF']],
+    f: { cuerpo:'cuerpo', mangas:'mangas', punos:'punos', cintura:'punos', cuello:'punos' },
+    rayas: { k:'rayas', n:2 }, capas: []
+  },
+  contraste: {
+    nombre: 'Contraste', tipo: 'zip', gamaDeportiva: 1,
+    zonas: [['superior','Arriba y capucha',0,'#6A3FA0'],['franja','Franja en V',2,'#FFFFFF'],['inferior','Abajo',1,'#1A1A1A'],['punos','Puños y cintura',0,'#6A3FA0'],['cordon','Cordones',-1,'#1A1A1A']],
+    f: { cuerpo:'inferior', mangas:'inferior', punos:'punos', cintura:'punos', capucha:'superior', cordon:'cordon' },
+    rayas: { k:'franja', n:1 },
+    capas: [
+      { d:'M0,0 H400 V168 L200,262 L0,168 Z', k:'superior' },
+      { d:'M0,168 L200,262 L400,168 V204 L200,298 L0,204 Z', k:'franja' }
+    ]
+  },
+  sport: {
+    nombre: 'Sport', tipo: 'pull', gamaDeportiva: 3,
+    zonas: [['centro','Centro y capucha',0,'#6FB3A6'],['laterales','Costados y mangas',1,'#1F4A33'],['bajos','Antebrazos y cintura',2,'#FFFFFF']],
+    f: { cuerpo:'laterales', mangas:'laterales', punos:'bajos', cintura:'bajos', capucha:'centro', bolsillo:'centro' },
+    capas: [
+      { d:'M152,0 H248 V400 H152 Z', k:'centro', clip:'cuerpo' },
+      { d:'M0,258 H400 V400 H0 Z', k:'bajos', clip:'mangas' }
+    ]
+  },
+  tricolor: {
+    nombre: 'Tricolor', tipo: 'zip', gamaDeportiva: 0,
+    zonas: [['superior','Arriba y capucha',0,'#9CCBEA'],['franja','Franja',1,'#FFFFFF'],['inferior','Abajo',0,'#9CCBEA'],['punos','Puños y cintura',0,'#9CCBEA']],
+    f: { cuerpo:'inferior', mangas:'inferior', punos:'punos', cintura:'punos', capucha:'superior' },
+    capas: [
+      { d:'M0,0 H400 V196 H0 Z', k:'superior' },
+      { d:'M0,196 H400 V246 H0 Z', k:'franja' }
+    ]
+  }
+};
+const ORDEN = ['clasica','college','contraste','sport','tricolor'];
+
+function oscurecer(hex, t) {
+  const n = parseInt(hex.slice(1), 16);
+  const c = [n >> 16, (n >> 8) & 255, n & 255].map(v => Math.round(v * (1 - t)));
+  return '#' + c.map(v => v.toString(16).padStart(2, '0')).join('');
+}
+function luz(hex) { const n = parseInt(hex.slice(1), 16); return 0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255); }
+const claro = hex => luz(hex) > 150;
+const ambos = (d, a) => `<path d="${d}" ${a}/><path d="${d}" transform="${ESPEJO}" ${a}/>`;
+
+function filtros(s) {
+  return `<filter id="fB${s}" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.07 0.95" numOctaves="2" seed="7" result="n"/>
+<feGaussianBlur in="SourceAlpha" stdDeviation="1.3" result="b"/>
+<feComposite in="n" in2="b" operator="arithmetic" k2="0.32" k3="0.66" result="bump"/>
+<feDiffuseLighting in="bump" surfaceScale="3.2" diffuseConstant="1.1" lighting-color="#FFFFFF" result="luz"><feDistantLight azimuth="235" elevation="48"/></feDiffuseLighting>
+<feComposite in="SourceGraphic" in2="luz" operator="arithmetic" k1="1.22" result="tex"/>
+<feComposite in="tex" in2="SourceAlpha" operator="in" result="tex2"/>
+<feGaussianBlur in="SourceAlpha" stdDeviation="0.9" result="sb"/>
+<feOffset in="sb" dx="0.8" dy="1.5" result="so"/>
+<feComponentTransfer in="so" result="sombra"><feFuncA type="linear" slope="0.55"/></feComponentTransfer>
+<feMerge><feMergeNode in="sombra"/><feMergeNode in="tex2"/></feMerge>
+</filter>
+<pattern id="rib${s}" width="5" height="10" patternUnits="userSpaceOnUse"><path d="M2.5,0 V10" stroke="rgba(0,0,0,.13)" stroke-width="1.3"/></pattern>`;
+}
+
+// Dibuja una vista completa. s = sufijo para que los id no choquen
+function dibujar(vista, mk, col, s, conEls, marca) {
+  const M = MODELOS[mk], c = k => col[k], F = M.f, atras = vista === 'espalda';
+  const cuerpo = atras ? G.cuerpoB : G.cuerpo;
+  const capucha = M.tipo !== 'college';
+  let o = `<defs>
+<clipPath id="ropa${s}"><path d="${cuerpo}"/><path d="${G.manga}"/><path d="${G.manga}" transform="${ESPEJO}"/></clipPath>
+<clipPath id="mangas${s}"><path d="${G.manga}"/><path d="${G.manga}" transform="${ESPEJO}"/></clipPath>
+<clipPath id="cuerpo${s}"><path d="${cuerpo}"/></clipPath>
+<clipPath id="todo${s}"><path d="${cuerpo}"/><path d="${G.manga}"/><path d="${G.manga}" transform="${ESPEJO}"/><path d="${G.cintura}"/>${ambos(G.puno, '')}${capucha ? `<path d="${atras ? G.capB : G.capF}"/>` : ''}</clipPath>
+${filtros(s)}</defs>`;
+  o += `<ellipse cx="200" cy="420" rx="156" ry="9" fill="rgba(0,0,0,.08)"/>`;
+  if (capucha && !atras) o += `<path d="${G.capF}" fill="${c(F.capucha)}" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/>`;
+  o += ambos(G.manga, `fill="${c(F.mangas)}"`);
+  o += `<path d="${cuerpo}" fill="${c(F.cuerpo)}"/>`;
+  for (const k of M.capas) o += `<path d="${k.d}" fill="${c(k.k)}" stroke="rgba(0,0,0,.2)" stroke-width="1.6" clip-path="url(#${k.clip || 'ropa'}${s})"/>`;
+  o += `<g fill="none" stroke="rgba(0,0,0,.13)" stroke-width="2" stroke-linecap="round">${ambos('M72,236 Q84,243 97,236', '')}${ambos('M66,280 Q78,286 92,281', '')}<path d="M140,330 Q152,336 164,331"/><path d="M236,334 Q248,340 260,334"/></g>`;
+  o += ambos(G.puno, `fill="${c(F.punos)}"`) + `<path d="${G.cintura}" fill="${c(F.cintura)}"/>`;
+  if (M.rayas) {
+    const ys = M.rayas.n === 2 ? [0, 9] : [5];
+    let r = '';
+    for (const dy of ys) r += `<path d="M117,${384 + dy} H283" />` + ambos(`M57,${352 + dy} L97,${357.5 + dy}`, '');
+    o += `<g stroke="${c(M.rayas.k)}" stroke-width="3.4" fill="none">${r}</g>`;
+  }
+  o += ambos(G.puno, `fill="url(#rib${s})"`) + `<path d="${G.cintura}" fill="url(#rib${s})"/>`;
+  if (capucha) {
+    if (!atras) o += `<path d="${G.forro}" fill="${oscurecer(c(F.capucha), 0.42)}" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/>`;
+    else o += `<path d="${G.capB}" fill="${c(F.capucha)}" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/><path d="M200,15 V168" stroke="rgba(0,0,0,.25)" stroke-width="2" fill="none"/><path d="M164,150 Q200,160 236,150" stroke="rgba(0,0,0,.15)" stroke-width="2" fill="none"/>`;
+  } else {
+    const d = atras ? G.cuelloB : G.cuelloF;
+    o += `<path d="${d}" fill="${c(F.cuello)}"/><path d="${d}" fill="url(#rib${s})"/>`;
+    if (M.rayas) o += atras
+      ? `<g stroke="${c(M.rayas.k)}" stroke-width="2.6" fill="none"><path d="M162,69 Q200,85 238,69"/><path d="M164,73 Q200,89 236,73"/></g>`
+      : `<g stroke="${c(M.rayas.k)}" stroke-width="2.6" fill="none"><path d="M160,68 Q200,100 240,68"/><path d="M162,72 Q200,104 238,72"/></g>`;
+    o += `<path d="${d}" fill="none" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/>`;
+  }
+  if (!atras) {
+    if (M.tipo === 'pull') {
+      o += `<path d="${G.bolsillo}" fill="${c(F.bolsillo)}" stroke="${TINTA}" stroke-width="2.6" stroke-linejoin="round"/><path d="M152,298 L248,298" stroke="rgba(0,0,0,.18)" stroke-width="1.6" stroke-dasharray="4 3"/>`;
+    } else {
+      const y0 = M.tipo === 'college' ? 98 : 102;
+      o += `<path d="M200,${y0} V404" stroke="${TINTA}" stroke-width="3.2"/><path d="M200,${y0} V404" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="2 2"/><rect x="196" y="${y0}" width="8" height="15" rx="2.5" fill="#C9C9C9" stroke="${TINTA}" stroke-width="2"/>`;
+      o += `<g stroke="rgba(0,0,0,.28)" stroke-width="2.2" stroke-linecap="round">${ambos('M140,300 L148,350', '')}</g>`;
+    }
+    if (F.cordon) {
+      const cc = c(F.cordon);
+      for (const x of [184, 216]) {
+        const d = `M${x},92 Q${x + (x < 200 ? -3 : 3)},128 ${x + (x < 200 ? -2 : 2)},168`;
+        o += `<path d="${d}" stroke="${TINTA}" stroke-width="6" fill="none" stroke-linecap="round"/><path d="${d}" stroke="${cc}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+      }
+    }
+  }
+  o += `<g fill="none" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">${ambos(G.manga, '')}<path d="${cuerpo}"/>${ambos(G.puno, '')}<path d="${G.cintura}"/></g>`;
+  if (capucha && atras) o += `<path d="${G.capB}" fill="none" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/>`;
+  if (conEls) o += elementosSVG(vista, s) + seleccionSVG(vista);
+  if (marca) o += `<rect x="0" y="0" width="400" height="440" fill="url(#${marca})" clip-path="url(#todo${s})" pointer-events="none"/>`;
+  return o;
+}
+
+// ---------- Estado ----------
+const S = {
+  modelo: 'college', vista: 'frente', linea: 'deportiva', nivel: 'primaria', prenda: 'campera', combo: 'remera', cant: 20,
+  colores: { premium: {}, deportiva: {} }, zona: null, els: [], sel: -1
+};
+for (const k of ORDEN) {
+  const M = MODELOS[k], g = GAMAS.deportiva[M.gamaDeportiva][1];
+  S.colores.premium[k] = Object.fromEntries(M.zonas.map(z => [z[0], z[3]]));
+  S.colores.deportiva[k] = Object.fromEntries(M.zonas.map(z => [z[0], z[2] >= 0 ? g[z[2]] : '#FFFFFF']));
+}
+const qs = new URLSearchParams(location.search);
+if (MODELOS[qs.get('modelo')]) S.modelo = qs.get('modelo');
+if (NIVELES[qs.get('nivel')]) S.nivel = qs.get('nivel');
+const colActual = () => S.colores[S.linea][S.modelo];
+
+// Escala: unidades del dibujo por centímetro, según el nivel (ancho de pecho de referencia)
+const U = () => ANCHO_CUERPO / NIVELES[S.nivel].anchoRef;
+const FUENTES = [['Graduate','College'],['Unbounded','Moderna'],['Pacifico','Cursiva'],['Manrope','Simple']];
+const ANCHO_LETRA = { Graduate: 0.7, Unbounded: 0.74, Pacifico: 0.56, Manrope: 0.6 };
+const anchoEl = e => e.tipo === 'img' ? e.w : e.t * (ANCHO_LETRA[e.fuente] || 0.65) * Math.max(1, e.texto.length);
+const altoEl = e => e.tipo === 'img' ? e.w / e.ar : e.t * 1.1;
+const cm = v => Math.round(v / U());
+
+const posiciones = vista => {
+  const cap = MODELOS[S.modelo].tipo !== 'college';
+  return vista === 'frente'
+    ? [['pechoIzq','Pecho izquierdo',244,152,30,16],['pechoDer','Pecho derecho',156,152,30,16],['centro','Centro del pecho',200,190,80,28],['manga','Manga',80,226,24,11]]
+    : [['arriba','Espalda arriba',200,cap ? 190 : 116,90,16],['completa','Espalda centro',200,cap ? 252 : 206,110,36],['abajo','Espalda abajo',200,336,110,22]];
+};
+let idSig = 1;
+function nuevoTexto(vista, pos, texto, fuente) {
+  const p = posiciones(vista).find(q => q[0] === pos);
+  return { id: idSig++, tipo: 'texto', vista, pos, x: p[2], y: p[3], t: p[5], texto, fuente, color: '', borde: '', auto: true, autoB: true };
+}
+// Colores automáticos del texto: oscuros en sublimado (el blanco no se imprime), blancos en bordado
+const colorTexto = e => e.auto ? (S.linea === 'deportiva' ? '#1C2747' : '#FFFFFF') : e.color;
+const bordeTexto = e => e.autoB ? (S.linea === 'premium' && e.vista === 'espalda' ? '#1A1A1A' : '') : e.borde;
+
+// Tope de tamaño por línea: 36×36 cm por estampa en sublimado; ~25×10 cm por bordado
+// Los logos bordados no tienen tope fijo: los revisa AMORE (sí se avisa si son complejos)
+function limites(e) {
+  if (S.linea === 'deportiva') return { w: PRECIOS.sublimado.maxLado, h: PRECIOS.sublimado.maxLado };
+  if (e && e.tipo === 'img') { const m = Math.round(NIVELES[S.nivel].anchoRef * 0.8); return { w: m, h: m }; } // no más grande que la espalda
+  return { w: PRECIOS.bordado.maxAncho, h: PRECIOS.bordado.maxAlto };
+}
+const extraCombo = () => PRECIOS.bordado.extraPorPrenda * PRECIOS.bordado.prendas;
+const logoGrande = e => e.tipo === 'img' && Math.max(anchoEl(e), altoEl(e)) / U() > PRECIOS.bordado.maxAncho;
+const revisarLogo = e => S.linea === 'premium' && e.tipo === 'img' && (e.complejo || logoGrande(e));
+// e.base guarda el tamaño que eligió el cliente; el tope se aplica sobre ese tamaño en cada línea y nivel
+function fijarBase(e) { e.base = e.tipo === 'img' ? e.w : e.t; }
+function ajustar(e) {
+  if (e.base === undefined) fijarBase(e);
+  if (e.tipo === 'img') e.w = e.base; else e.t = e.base;
+  const L = limites(e), w = anchoEl(e) / U(), h = altoEl(e) / U();
+  const f = Math.min(1, L.w / w, L.h / h);
+  if (f < 0.999) { if (e.tipo === 'img') e.w = Math.floor(e.w * f); else e.t = Math.floor(e.t * f * 10) / 10; return true; }
+  return false;
+}
+function alTope(e) { const L = limites(e); return anchoEl(e) / U() >= L.w - 0.6 || altoEl(e) / U() >= L.h - 0.6; }
+
+S.els.push(nuevoTexto('frente', 'pechoIzq', 'Sofi', 'Pacifico'));
+S.els.push(nuevoTexto('espalda', 'arriba', 'EGRESADOS', 'Graduate'));
+S.els.push(nuevoTexto('espalda', 'completa', '2027', 'Graduate'));
+S.els.forEach(ajustar);
+
+const esc = t => String(t).replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
+
+function elementosSVG(vista, s) {
+  const bord = S.linea === 'premium';
+  // En sublimado la tinta se multiplica con la tela: el blanco no se imprime y los colores se tiñen
+  const st = `cursor:move${bord ? '' : ';mix-blend-mode:multiply'}`;
+  let o = '';
+  S.els.forEach((e, i) => {
+    if (e.vista !== vista) return;
+    const f = (bord ? ` filter="url(#fB${s})"` : '') + ` clip-path="url(#todo${s})"`;
+    if (e.tipo === 'img') {
+      const w = e.w, h = e.w / e.ar;
+      o += `<image data-i="${i}" href="${bord ? e.srcB : e.src}" x="${e.x - w / 2}" y="${e.y - h / 2}" width="${w}" height="${h}" preserveAspectRatio="none"${f} style="${st}"/>`;
+    } else {
+      const bc = bordeTexto(e);
+      const b = bc ? ` stroke="${bc}" stroke-width="${(e.t * 0.14).toFixed(1)}" stroke-linejoin="round" paint-order="stroke"` : '';
+      o += `<text data-i="${i}" x="${e.x}" y="${e.y}" font-family="${e.fuente}" font-size="${e.t}" fill="${colorTexto(e)}"${b} text-anchor="middle" dominant-baseline="central"${f} style="${st}">${esc(e.texto)}</text>`;
+    }
+  });
+  return o;
+}
+function seleccionSVG(vista) {
+  const e = S.els[S.sel];
+  if (!e || e.vista !== vista) return '';
+  const w = anchoEl(e) + 10, h = altoEl(e) + 10;
+  return `<rect x="${e.x - w / 2}" y="${e.y - h / 2}" width="${w}" height="${h}" rx="6" fill="none" stroke="#8B0000" stroke-width="1.6" stroke-dasharray="5 4" pointer-events="none"/>`;
+}
+
+// ---------- Interfaz ----------
+const $ = s => document.querySelector(s);
+const lienzo = $('#lienzo');
+function pintarLienzo() { lienzo.innerHTML = dibujar(S.vista, S.modelo, colActual(), 'v', true); }
+
+function pintarModelos() {
+  $('#modelos').innerHTML = ORDEN.map(k => `<button type="button" data-m="${k}" aria-pressed="${k === S.modelo}"><svg viewBox="40 6 320 410" aria-hidden="true">${dibujar('frente', k, S.colores[S.linea][k], 'm' + k, false)}</svg>${MODELOS[k].nombre}</button>`).join('');
+}
+function pintarColores() {
+  const M = MODELOS[S.modelo], col = colActual(), pal = PALETAS[S.linea];
+  if (!S.zona || !M.zonas.some(z => z[0] === S.zona)) S.zona = M.zonas[0][0];
+  $('#aviso-colores').innerHTML = S.linea === 'deportiva'
+    ? '<b>Línea Deportiva (frisado):</b> solo tonos claros o pastel. No se puede sublimar sobre tela oscura.'
+    : '<b>Línea Premium (algodón):</b> va bordada, así que también se puede en colores oscuros.';
+  $('#gamas').innerHTML = GAMAS[S.linea].map((g, i) => `<button type="button" class="chip-btn gama" data-g="${i}">${g[1].map(h => `<span class="punto" style="background:${h}"></span>`).join('')}${g[0]}</button>`).join('');
+  $('#zonas').innerHTML = M.zonas.map(z => `<button type="button" class="chip-btn" data-z="${z[0]}" aria-pressed="${z[0] === S.zona}"><span class="punto" style="background:${col[z[0]]}"></span>${z[1]}</button>`).join('');
+  const act = col[S.zona];
+  $('#paleta').innerHTML = pal.map(p => `<button type="button" data-c="${p[1]}" title="${p[0]}" aria-label="${p[0]}" aria-pressed="${p[1].toLowerCase() === act.toLowerCase()}" style="background:${p[1]}"></button>`).join('');
+  $('#nombre-color').textContent = `${M.zonas.find(z => z[0] === S.zona)[1]}: ${nombreColor(act)}`;
+}
+const nombrePos = e => (posiciones(e.vista).find(p => p[0] === e.pos) || [0, 'A mano'])[1];
+function pintarElementos() {
+  const L = limites();
+  $('#aviso-tam').innerHTML = S.linea === 'deportiva'
+    ? `Cada estampa sublimada mide como máximo <b>${L.w} × ${L.h} cm</b>. Para algo más grande se usan varias estampas separadas, por ejemplo "EGRESADOS" arriba y "2027" abajo.`
+    : `Van <b>${PRECIOS.bordado.incluidos} bordados incluidos</b> en la campera, que se repiten en la remera o chomba. Cada bordado extra suma ${plata(PRECIOS.bordado.extraPorPrenda)} por prenda (${plata(extraCombo())} por combo). Los textos bordados miden hasta ${PRECIOS.bordado.maxAncho} × ${PRECIOS.bordado.maxAlto} cm; los logos los revisamos según el diseño.`;
+  $('#lista-el').innerHTML = S.els.map((e, i) => `<button type="button" data-e="${i}" aria-pressed="${i === S.sel}">${e.tipo === 'img' ? `<img src="${e.src}" alt="">` : `<span class="punto" style="background:${colorTexto(e)};width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;color:${claro(colorTexto(e)) ? '#111' : '#fff'}">T</span>`}<span style="min-width:0;display:flex;flex-direction:column"><span class="tx">${e.tipo === 'img' ? esc(e.nombre) : esc(e.texto)}</span><span class="sub">${e.vista === 'frente' ? 'Frente' : 'Espalda'} · ${nombrePos(e)} · ${cm(anchoEl(e))} × ${cm(altoEl(e))} cm${revisarLogo(e) ? ' · <b style="color:#8B0000">A revisar</b>' : ''}</span></span></button>`).join('')
+    || '<p class="nota">Todavía no agregaste nada.</p>';
+  const ed = $('#editor'), e = S.els[S.sel];
+  if (!e) { ed.classList.add('oculto-x'); ed.innerHTML = ''; return; }
+  ed.classList.remove('oculto-x');
+  const pos = posiciones(e.vista), todos = PALETAS.premium;
+  let h = '';
+  if (e.tipo === 'texto') {
+    const ct = colorTexto(e), bt = bordeTexto(e);
+    h += `<label class="campo">Texto<input type="text" id="ed-texto" maxlength="24" value="${esc(e.texto)}"></label>
+<div class="fila"><label class="campo">Letra<select id="ed-fuente">${FUENTES.map(f => `<option value="${f[0]}"${f[0] === e.fuente ? ' selected' : ''}>${f[1]}</option>`).join('')}</select></label>
+<label class="campo">Color<select id="ed-color">${todos.map(p => `<option value="${p[1]}"${p[1] === ct ? ' selected' : ''}>${p[0]}</option>`).join('')}</select></label></div>
+<label class="campo">Borde de la letra<select id="ed-borde"><option value="">Sin borde</option>${todos.map(p => `<option value="${p[1]}"${p[1] === bt ? ' selected' : ''}>${p[0]}</option>`).join('')}</select></label>`;
+    if (S.linea === 'deportiva' && luz(ct) > 235) h += `<p class="aviso-hilos">En sublimado el blanco no se imprime: esa parte queda del color de la tela.</p>`;
+  }
+  h += `<div class="fila"><label class="campo">Lado<select id="ed-vista"><option value="frente"${e.vista === 'frente' ? ' selected' : ''}>Frente</option><option value="espalda"${e.vista === 'espalda' ? ' selected' : ''}>Espalda</option></select></label>
+<label class="campo">Ubicación<select id="ed-pos">${pos.map(p => `<option value="${p[0]}"${p[0] === e.pos ? ' selected' : ''}>${p[1]}</option>`).join('')}${pos.some(p => p[0] === e.pos) ? '' : '<option selected>A mano</option>'}</select></label></div>
+<label class="campo"><span>Tamaño: <span id="ed-medida">${cm(anchoEl(e))} × ${cm(altoEl(e))} cm</span></span><input type="range" id="ed-tam" min="${e.tipo === 'img' ? 12 : 6}" max="${e.tipo === 'img' ? 200 : 60}" step="${e.tipo === 'img' ? 1 : 0.5}" value="${e.tipo === 'img' ? e.w : e.t}"></label>
+<p class="aviso-hilos${alTope(e) ? '' : ' oculto-x'}" id="ed-tope">${S.linea === 'deportiva' ? `Llegaste al máximo de ${L.w} × ${L.h} cm por estampa. Si querés algo más grande, sumá otra estampa separada.` : (e.tipo === 'img' ? 'Es el tamaño máximo para la espalda de este talle.' : `Llegaste al máximo de ${PRECIOS.bordado.maxAncho} × ${PRECIOS.bordado.maxAlto} cm por bordado.`)}</p>`;
+  if (e.tipo === 'img') {
+    h += `<label class="check"><input type="checkbox" id="ed-fondo"${e.sinFondo ? ' checked' : ''}> Quitar fondo blanco</label>`;
+    if (revisarLogo(e)) h += `<p class="aviso-revisar"><b>${e.complejo ? 'Logo con muchos detalles.' : 'Logo grande.'}</b> ${e.complejo ? 'Algunos logos no se pueden bordar igual o hay que simplificarlos.' : `Los bordados de más de ${PRECIOS.bordado.maxAncho} cm dependen del diseño.`} Lo revisamos y te confirmamos antes de producir.</p>`;
+    else if (S.linea === 'premium') h += `<p class="aviso-hilos">En bordado se simplifica a <b>${e.hilos} color${e.hilos === 1 ? '' : 'es'} de hilo</b>. Los detalles muy finos o degradados se pierden.</p>`;
+  }
+  h += `<button type="button" class="btn btn-light" id="ed-borrar" style="align-self:flex-start">Quitar</button>`;
+  ed.innerHTML = h;
+}
+function pintarBotones() {
+  document.querySelectorAll('[data-vista]').forEach(b => b.setAttribute('aria-pressed', b.dataset.vista === S.vista));
+  document.querySelectorAll('[data-linea]').forEach(b => b.setAttribute('aria-pressed', b.dataset.linea === S.linea));
+  document.querySelectorAll('[data-prenda]').forEach(b => b.setAttribute('aria-pressed', b.dataset.prenda === S.prenda));
+  document.querySelectorAll('[data-nivel]').forEach(b => b.setAttribute('aria-pressed', b.dataset.nivel === S.nivel));
+  $('#nivel-talles').textContent = NIVELES[S.nivel].talles;
+}
+function todo() { pintarBotones(); pintarLienzo(); pintarModelos(); pintarColores(); pintarElementos(); cotizar(); }
+
+// ---------- Cotizador ----------
+const plata = v => '$' + Math.round(v).toLocaleString('es-AR');
+const redondear = v => Math.ceil(v / PRECIOS.redondeo) * PRECIOS.redondeo;
+const COMBOS = { remera: 'combo con remera', chomba: 'combo con chomba' };
+const prendaTxt = () => S.prenda === 'campera' ? 'Campera' : 'Buzo';
+function bonificados() { return { aplica: S.cant >= PRECIOS.bonificados.minimoCombos, falta: Math.max(0, PRECIOS.bonificados.minimoCombos - S.cant) }; }
+function calcular() {
+  const L = PRECIOS.lineas[S.linea];
+  const det = [[`${prendaTxt()} ${MODELOS[S.modelo].nombre}, ${COMBOS[S.combo]} (${NIVELES[S.nivel].nombre})`, L[S.nivel]]];
+  let extras = 0;
+  if (S.linea === 'premium') {
+    extras = Math.max(0, S.els.length - PRECIOS.bordado.incluidos);
+    if (extras) det.push([`${extras} bordado${extras > 1 ? 's' : ''} extra, en ${S.prenda} y ${S.combo} (${plata(extraCombo())} c/u)`, extras * extraCombo()]);
+  }
+  const unidad = redondear(det.reduce((a, d) => a + d[1], 0));
+  return { L, det, extras, unidad, total: unidad * S.cant, bonif: bonificados() };
+}
+function cotizar() {
+  const r = calcular();
+  $('#p-linea').textContent = `${r.L.nombre} · ${r.L.tecnica} · ${NIVELES[S.nivel].nombre} · por combo`;
+  $('#p-unidad').textContent = plata(r.unidad);
+  $('#p-total').textContent = `Total para ${S.cant} combos: ${plata(r.total)}`;
+  let d = r.det.map(x => `<li><span>${esc(x[0])}</span><span>${plata(x[1])}</span></li>`).join('');
+  if (S.linea === 'premium') d += `<li><span>Bordados incluidos (se repiten en la ${S.combo})</span><span>${Math.min(S.els.length, PRECIOS.bordado.incluidos)} de ${PRECIOS.bordado.incluidos}</span></li>`;
+  const aRevisar = S.els.filter(revisarLogo).length;
+  if (aRevisar) d += `<li class="revisar"><span>${aRevisar === 1 ? 'Un logo a revisar' : aRevisar + ' logos a revisar'}: puede cambiar el precio o el diseño</span><span>a confirmar</span></li>`;
+  else d += `<li><span>Estampas sublimadas</span><span>incluidas</span></li>`;
+  $('#p-detalle').innerHTML = d;
+  const B = PRECIOS.bonificados, items = [...B.porCurso, B.porCombo + ' (una por combo)', 'Diseño del curso'];
+  $('#bonif').innerHTML = r.bonif.aplica
+    ? `<b>Sin cargo para tu curso:</b><ul>${items.map(x => `<li>${esc(x)}</li>`).join('')}</ul><span>Confirmando hasta el ${B.hasta}. <a href="legales.html#promociones">Ver condiciones</a></span>`
+    : `<b>Beneficios de lanzamiento:</b> con ${B.minimoCombos} combos o más por curso, confirmados hasta el ${B.hasta}, suman sin cargo bandera del curso, un combo para sortear y una remera de gimnasia por combo. <b>Te faltan ${r.bonif.falta} combo${r.bonif.falta > 1 ? 's' : ''}.</b> <a href="legales.html#promociones">Ver condiciones</a>`;
+  $('#p-nota').textContent = `Es un valor de referencia, con impuestos incluidos, vigente en ${PRECIOS.vigencia}. El precio final te lo confirmamos por WhatsApp.`;
+  $('#pedir').href = `https://wa.me/${PRECIOS.whatsapp}?text=${encodeURIComponent(resumen(r))}`;
+}
+function resumen(r) {
+  const M = MODELOS[S.modelo], col = colActual();
+  const els = S.els.map(e => `- ${e.tipo === 'img' ? 'Imagen' : `Texto "${e.texto}"`} en ${e.vista} (${nombrePos(e).toLowerCase()}, ${cm(anchoEl(e))} × ${cm(altoEl(e))} cm)${revisarLogo(e) ? (e.complejo ? ' — LOGO CON MUCHOS DETALLES, A REVISAR' : ' — LOGO GRANDE, A REVISAR') : ''}`).join('\n');
+  return `Hola! Armé un diseño en la web:
+Modelo: ${prendaTxt()} ${M.nombre}, ${COMBOS[S.combo]}
+Línea: ${r.L.nombre} (${r.L.tela}, ${r.L.tecnica})
+Nivel: ${NIVELES[S.nivel].nombre}
+Colores: ${M.zonas.map(z => `${z[1]}: ${nombreColor(col[z[0]])}`).join(' · ')}
+${els ? 'Diseños:\n' + els + '\n' : ''}Cantidad: ${S.cant} combos
+Precio: ${plata(r.unidad)} por combo, total ${plata(r.total)}${r.bonif.aplica ? `\nSin cargo: ${PRECIOS.bonificados.porCurso.join(', ').toLowerCase()} y una remera de gimnasia por combo` : ''}
+Te mando la imagen del diseño.`;
+}
+
+// ---------- Imágenes: quitar fondo y simular bordado ----------
+function cargarImg(url) { return new Promise((ok, mal) => { const i = new Image(); i.onload = () => ok(i); i.onerror = mal; i.src = url; }); }
+function quitarFondo(ctx, w, h) {
+  const d = ctx.getImageData(0, 0, w, h), p = d.data, vis = new Uint8Array(w * h), cola = [];
+  const blanco = i => p[i * 4 + 3] < 20 || (p[i * 4] > 232 && p[i * 4 + 1] > 232 && p[i * 4 + 2] > 232);
+  for (let x = 0; x < w; x++) cola.push(x, (h - 1) * w + x);
+  for (let y = 0; y < h; y++) cola.push(y * w, y * w + w - 1);
+  while (cola.length) {
+    const i = cola.pop();
+    if (vis[i] || !blanco(i)) continue;
+    vis[i] = 1; p[i * 4 + 3] = 0;
+    const x = i % w, y = (i / w) | 0;
+    if (x > 0) cola.push(i - 1); if (x < w - 1) cola.push(i + 1);
+    if (y > 0) cola.push(i - w); if (y < h - 1) cola.push(i + w);
+  }
+  ctx.putImageData(d, 0, 0);
+}
+function bordar(canvas) {
+  const w = canvas.width, h = canvas.height, ctx = canvas.getContext('2d');
+  const d = ctx.getImageData(0, 0, w, h), p = d.data, muestras = [];
+  const paso = Math.max(1, Math.floor(Math.sqrt(w * h / 5000)));
+  for (let y = 0; y < h; y += paso) for (let x = 0; x < w; x += paso) { const i = (y * w + x) * 4; if (p[i + 3] > 128) muestras.push([p[i], p[i + 1], p[i + 2]]); }
+  if (!muestras.length) return { url: canvas.toDataURL(), hilos: 0 };
+  const dist = (a, b) => (a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2 + (a[2] - b[2]) ** 2;
+  const K = 6, cs = [muestras[0].slice()];
+  while (cs.length < K) {
+    let mejor = null, md = -1;
+    for (const m of muestras) { const dm = Math.min(...cs.map(c => dist(m, c))); if (dm > md) { md = dm; mejor = m; } }
+    if (md < 900) break; cs.push(mejor.slice());
+  }
+  let cuenta = [];
+  for (let it = 0; it < 8; it++) {
+    const suma = cs.map(() => [0, 0, 0, 0]);
+    for (const m of muestras) { let b = 0, bd = 1e9; cs.forEach((c, j) => { const dd = dist(m, c); if (dd < bd) { bd = dd; b = j; } }); const s = suma[b]; s[0] += m[0]; s[1] += m[1]; s[2] += m[2]; s[3]++; }
+    suma.forEach((s, j) => { if (s[3]) cs[j] = [s[0] / s[3], s[1] / s[3], s[2] / s[3]]; });
+    cuenta = suma.map(s => s[3]);
+  }
+  const vivos = cs.filter((c, j) => cuenta[j] / muestras.length > 0.02);
+  const idx = new Int8Array(w * h).fill(-1);
+  let err = 0, opacos = 0;
+  for (let i = 0, q = 0; i < p.length; i += 4, q++) {
+    if (p[i + 3] < 110) { p[i + 3] = 0; continue; }
+    let b = 0, bd = 1e9;
+    vivos.forEach((c, j) => { const dd = (p[i] - c[0]) ** 2 + (p[i + 1] - c[1]) ** 2 + (p[i + 2] - c[2]) ** 2; if (dd < bd) { bd = dd; b = j; } });
+    err += Math.sqrt(bd); opacos++; idx[q] = b;
+    const c = vivos[b]; p[i] = c[0]; p[i + 1] = c[1]; p[i + 2] = c[2]; p[i + 3] = 255;
+  }
+  ctx.putImageData(d, 0, 0);
+  // Complejidad: cuánto se pierde al pasar a hilos (degradados, fotos) y cuánto borde fino tiene
+  let bordes = 0;
+  for (let y = 0; y < h - 1; y++) for (let x = 0; x < w - 1; x++) {
+    const q = y * w + x; if (idx[q] < 0) continue;
+    if ((idx[q + 1] >= 0 && idx[q + 1] !== idx[q]) || (idx[q + w] >= 0 && idx[q + w] !== idx[q])) bordes++;
+  }
+  const perdida = opacos ? err / opacos : 0;
+  const fino = opacos ? bordes / Math.sqrt(opacos) : 0;   // largo de bordes internos relativo al tamaño
+  const complejo = vivos.length >= 6 || perdida > 6 || fino > 25;
+  return { url: canvas.toDataURL('image/png'), hilos: vivos.length, complejo, medida: { perdida: +perdida.toFixed(1), fino: +fino.toFixed(1) } };
+}
+async function procesar(e) {
+  const img = await cargarImg(e.orig);
+  const esc2 = Math.min(1, 520 / Math.max(img.width, img.height));
+  const w = Math.max(1, Math.round(img.width * esc2)), h = Math.max(1, Math.round(img.height * esc2));
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h;
+  const ctx = cv.getContext('2d', { willReadFrequently: true });
+  ctx.drawImage(img, 0, 0, w, h);
+  let out = cv;
+  if (e.sinFondo) {
+    quitarFondo(ctx, w, h);
+    const p = ctx.getImageData(0, 0, w, h).data;
+    let x0 = w, y0 = h, x1 = -1, y1 = -1;
+    for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (p[(y * w + x) * 4 + 3] > 20) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    if (x1 >= x0 && (x1 - x0 < w - 2 || y1 - y0 < h - 2)) {
+      out = document.createElement('canvas'); out.width = x1 - x0 + 1; out.height = y1 - y0 + 1;
+      out.getContext('2d', { willReadFrequently: true }).drawImage(cv, -x0, -y0);
+    }
+  }
+  e.src = out.toDataURL('image/png'); e.ar = out.width / out.height;
+  const b = bordar(out); e.srcB = b.url; e.hilos = b.hilos; e.complejo = b.complejo; e.medida = b.medida;
+}
+
+// ---------- Eventos ----------
+function cambiarLinea(l) {
+  if (l === S.linea) return;
+  S.linea = l; S.els.forEach(ajustar); todo();
+}
+document.addEventListener('click', ev => {
+  const b = ev.target.closest('button'); if (!b) return;
+  if (b.dataset.vista) { S.vista = b.dataset.vista; pintarBotones(); pintarLienzo(); }
+  else if (b.dataset.linea) cambiarLinea(b.dataset.linea);
+  else if (b.dataset.nivel) { S.nivel = b.dataset.nivel; S.els.forEach(ajustar); pintarBotones(); pintarLienzo(); pintarElementos(); cotizar(); }
+  else if (b.dataset.prenda) { S.prenda = b.dataset.prenda; pintarBotones(); cotizar(); }
+  else if (b.dataset.m) {
+    S.modelo = b.dataset.m;
+    S.els.forEach(e => { const p = posiciones(e.vista).find(q => q[0] === e.pos); if (p) { e.x = p[2]; e.y = p[3]; } });
+    todo();
+  }
+  else if (b.dataset.g) {
+    const g = GAMAS[S.linea][+b.dataset.g][1], col = colActual();
+    for (const z of MODELOS[S.modelo].zonas) if (z[2] >= 0) col[z[0]] = g[z[2]];
+    pintarLienzo(); pintarModelos(); pintarColores(); cotizar();
+  }
+  else if (b.dataset.z) { S.zona = b.dataset.z; pintarColores(); }
+  else if (b.dataset.c) { colActual()[S.zona] = b.dataset.c; pintarLienzo(); pintarModelos(); pintarColores(); cotizar(); }
+  else if (b.dataset.e) { S.sel = +b.dataset.e; const e = S.els[S.sel]; if (e.vista !== S.vista) { S.vista = e.vista; pintarBotones(); } pintarLienzo(); pintarElementos(); }
+  else if (b.id === 'ed-borrar') { S.els.splice(S.sel, 1); S.sel = -1; pintarLienzo(); pintarElementos(); cotizar(); }
+  else if (b.id === 'add-texto') {
+    const pos = S.vista === 'frente' ? 'pechoDer' : 'abajo';
+    const e = nuevoTexto(S.vista, pos, S.vista === 'frente' ? 'Nombre' : 'Colegio', 'Unbounded'); ajustar(e);
+    S.els.push(e); S.sel = S.els.length - 1; pintarLienzo(); pintarElementos(); cotizar();
+    const t = $('#ed-texto'); if (t) { t.focus(); t.select(); }
+  }
+  else if (b.id === 'menos' || b.id === 'mas') { S.cant = Math.max(1, Math.min(500, S.cant + (b.id === 'mas' ? 1 : -1))); $('#cant').value = S.cant; cotizar(); }
+  else if (b.id === 'bajar') descargar();
+});
+document.addEventListener('input', ev => {
+  const t = ev.target, e = S.els[S.sel];
+  if (t.id === 'cant') { S.cant = Math.max(1, Math.min(500, parseInt(t.value) || 1)); cotizar(); }
+  else if (t.id === 'ed-texto' && e) {
+    e.texto = t.value; ajustar(e); pintarLienzo(); cotizar();
+    const s = document.querySelector(`[data-e="${S.sel}"] .tx`); if (s) s.textContent = t.value;
+    const tam = $('#ed-tam'); if (tam) tam.value = e.t;
+    actualizarMedida(e);
+  }
+  else if (t.id === 'ed-tam' && e) {
+    if (e.tipo === 'img') e.w = +t.value; else e.t = +t.value;
+    fijarBase(e);
+    if (ajustar(e)) t.value = e.tipo === 'img' ? e.w : e.t;
+    actualizarMedida(e); pintarLienzo(); cotizar();
+  }
+});
+function actualizarMedida(e) {
+  const m = $('#ed-medida'); if (m) m.textContent = `${cm(anchoEl(e))} × ${cm(altoEl(e))} cm`;
+  const tp = $('#ed-tope'); if (tp) tp.classList.toggle('oculto-x', !alTope(e));
+}
+document.addEventListener('change', async ev => {
+  const t = ev.target, e = S.els[S.sel];
+  if (t.id === 'combo') { S.combo = t.value; cotizar(); }
+  else if (t.id === 'ed-tam' && e) pintarElementos();
+  else if (t.id === 'ed-fuente' && e) { e.fuente = t.value; ajustar(e); pintarLienzo(); pintarElementos(); }
+  else if (t.id === 'ed-color' && e) { e.color = t.value; e.auto = false; pintarLienzo(); pintarElementos(); }
+  else if (t.id === 'ed-borde' && e) { e.borde = t.value; e.autoB = false; pintarLienzo(); }
+  else if (t.id === 'ed-vista' && e) {
+    e.vista = t.value; const p = posiciones(e.vista)[0]; e.pos = p[0]; e.x = p[2]; e.y = p[3];
+    S.vista = e.vista; pintarBotones(); pintarLienzo(); pintarElementos(); cotizar();
+  }
+  else if (t.id === 'ed-pos' && e) {
+    const p = posiciones(e.vista).find(q => q[0] === t.value); if (!p) return;
+    e.pos = p[0]; e.x = p[2]; e.y = p[3]; if (e.tipo === 'img') e.w = p[4]; else e.t = p[5];
+    fijarBase(e); ajustar(e); pintarLienzo(); pintarElementos(); cotizar();
+  }
+  else if (t.id === 'ed-fondo' && e) { e.sinFondo = t.checked; await procesar(e); ajustar(e); pintarLienzo(); pintarElementos(); cotizar(); }
+  else if (t.id === 'subir' && t.files[0]) {
+    const f = t.files[0]; t.value = '';
+    const url = await new Promise(ok => { const r = new FileReader(); r.onload = () => ok(r.result); r.readAsDataURL(f); });
+    const p = posiciones(S.vista)[0];
+    const el = { id: idSig++, tipo: 'img', nombre: f.name, vista: S.vista, pos: p[0], x: p[2], y: p[3], w: p[4], orig: url, sinFondo: true };
+    try { await procesar(el); } catch (err) { alert('No pudimos abrir esa imagen. Probá con un PNG o JPG.'); return; }
+    ajustar(el); S.els.push(el); S.sel = S.els.length - 1; pintarLienzo(); pintarElementos(); cotizar();
+  }
+});
+
+// Arrastrar sobre la prenda. Si el dedo empieza fuera de un diseño, la página se desliza normal.
+let arrastre = null;
+function punto(ev) { const pt = lienzo.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY; return pt.matrixTransform(lienzo.getScreenCTM().inverse()); }
+lienzo.addEventListener('touchstart', ev => { if (ev.target.closest && ev.target.closest('[data-i]')) ev.preventDefault(); }, { passive: false });
+lienzo.addEventListener('pointerdown', ev => {
+  const n = ev.target.closest('[data-i]');
+  if (!n) { if (S.sel >= 0 && ev.pointerType === 'mouse') { S.sel = -1; pintarLienzo(); pintarElementos(); } return; }
+  S.sel = +n.dataset.i; const e = S.els[S.sel], p = punto(ev);
+  arrastre = { dx: e.x - p.x, dy: e.y - p.y, movio: false };
+  lienzo.setPointerCapture(ev.pointerId); pintarLienzo(); pintarElementos();
+});
+lienzo.addEventListener('pointermove', ev => {
+  if (!arrastre) return;
+  const e = S.els[S.sel], p = punto(ev);
+  e.x = Math.round(Math.max(30, Math.min(370, p.x + arrastre.dx)));
+  e.y = Math.round(Math.max(20, Math.min(410, p.y + arrastre.dy)));
+  if (!arrastre.movio) { arrastre.movio = true; e.pos = 'mano'; }
+  pintarLienzo();
+});
+const soltar = () => { if (arrastre && arrastre.movio) { pintarElementos(); cotizar(); } arrastre = null; };
+lienzo.addEventListener('pointerup', soltar);
+lienzo.addEventListener('pointercancel', soltar);
+
+// ---------- Barra de desplazamiento gruesa (celulares) ----------
+(function () {
+  const barra = $('#barra'), pulgar = $('#pulgar');
+  let agarre = null;
+  function medidas() {
+    const vh = innerHeight, total = document.documentElement.scrollHeight;
+    const alto = Math.max(64, vh * vh / total), libre = vh - alto;
+    return { vh, total, alto, libre };
+  }
+  function ubicar() {
+    const m = medidas();
+    pulgar.style.height = m.alto + 'px';
+    pulgar.style.transform = `translateY(${m.libre * (scrollY / Math.max(1, m.total - m.vh))}px)`;
+  }
+  function irA(y) {
+    const m = medidas();
+    scrollTo(0, Math.max(0, Math.min(1, y / Math.max(1, m.libre))) * (m.total - m.vh));
+  }
+  barra.addEventListener('pointerdown', ev => {
+    ev.preventDefault();
+    const r = pulgar.getBoundingClientRect();
+    agarre = ev.target === pulgar ? ev.clientY - r.top : medidas().alto / 2;
+    barra.setPointerCapture(ev.pointerId); irA(ev.clientY - agarre);
+  });
+  barra.addEventListener('pointermove', ev => { if (agarre !== null) irA(ev.clientY - agarre); });
+  const fin = () => { agarre = null; };
+  barra.addEventListener('pointerup', fin); barra.addEventListener('pointercancel', fin);
+  addEventListener('scroll', ubicar, { passive: true });
+  addEventListener('resize', ubicar);
+  new ResizeObserver(ubicar).observe(document.body);
+  ubicar();
+})();
+
+// ---------- Descargar la imagen (frente y espalda, con la marca de AMORE) ----------
+let fuentesCSS = null;
+async function fuentesEmbebidas() {
+  if (fuentesCSS !== null) return fuentesCSS;
+  try {
+    let css = await (await fetch('https://fonts.googleapis.com/css2?family=Graduate&family=Pacifico&family=Unbounded:wght@800&family=Manrope:wght@800&display=swap')).text();
+    const urls = [...new Set(css.match(/https:[^)]+\.woff2/g) || [])];
+    for (const u of urls) {
+      const b = await (await fetch(u)).blob();
+      const d = await new Promise(ok => { const r = new FileReader(); r.onload = () => ok(r.result); r.readAsDataURL(b); });
+      css = css.split(u).join(d);
+    }
+    fuentesCSS = css;
+  } catch (err) { fuentesCSS = ''; }
+  return fuentesCSS;
+}
+// Logo de la web sin el fondo blanco, para el panel y el pie
+let logoCache = null;
+function logoSinFondo() {
+  if (logoCache !== null) return logoCache;
+  try {
+    const i = document.querySelector('.logo img');
+    if (!i || !i.naturalWidth) return '';
+    const c = document.createElement('canvas'); c.width = i.naturalWidth; c.height = i.naturalHeight;
+    const x = c.getContext('2d', { willReadFrequently: true }); x.drawImage(i, 0, 0);
+    const d = x.getImageData(0, 0, c.width, c.height), p = d.data;
+    for (let k = 0; k < p.length; k += 4) {
+      const m = Math.min(p[k], p[k + 1], p[k + 2]);
+      if (m > 236) p[k + 3] = 0; else if (m > 200) p[k + 3] = Math.round(255 * (236 - m) / 36);
+    }
+    x.putImageData(d, 0, 0);
+    logoCache = c.toDataURL('image/png');
+  } catch (err) { logoCache = ''; }
+  return logoCache;
+}
+async function descargar() {
+  const btn = $('#bajar'); btn.textContent = 'Armando imagen…'; btn.disabled = true;
+  try {
+    const css = await fuentesEmbebidas(), col = colActual(), M = MODELOS[S.modelo], r = calcular();
+    const anio = new Date().getFullYear(), logo = logoSinFondo();
+    const sel = S.sel; S.sel = -1;
+    const panel = logo
+      ? `<pattern id="panel" width="300" height="140" patternUnits="userSpaceOnUse"><image href="${logo}" x="10" y="10" width="140" height="56"/><image href="${logo}" x="160" y="80" width="140" height="56"/></pattern>`
+      : '';
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 840 620" width="1680" height="1240">
+<style>${css}</style>
+<defs>${panel}
+<pattern id="marca" width="210" height="110" patternUnits="userSpaceOnUse" patternTransform="rotate(-28)">
+<text x="0" y="36" font-family="Unbounded" font-weight="800" font-size="15" fill="#FFFFFF" fill-opacity="0.32" stroke="#1B6B35" stroke-opacity="0.18" stroke-width="0.6">AMORE Sublimación</text>
+<text x="105" y="91" font-family="Unbounded" font-weight="800" font-size="15" fill="#FFFFFF" fill-opacity="0.32" stroke="#1B6B35" stroke-opacity="0.18" stroke-width="0.6">AMORE Sublimación</text>
+</pattern></defs>
+<rect width="840" height="620" fill="#FBF3F3"/>
+${logo ? `<rect width="840" height="520" fill="url(#panel)" opacity="0.6"/>` : ''}
+<rect x="12" y="12" width="816" height="508" rx="18" fill="none" stroke="#1B6B35" stroke-width="2"/>
+<g transform="translate(10,52)">${dibujar('frente', S.modelo, col, 'x1', true, 'marca')}</g>
+<g transform="translate(430,52)">${dibujar('espalda', S.modelo, col, 'x2', true, 'marca')}</g>
+<rect x="160" y="22" width="100" height="26" rx="13" fill="#FFFFFF" stroke="#1B6B35" stroke-width="2"/>
+<rect x="575" y="22" width="110" height="26" rx="13" fill="#FFFFFF" stroke="#1B6B35" stroke-width="2"/>
+<text x="210" y="40" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="14" fill="#1B6B35">FRENTE</text>
+<text x="630" y="40" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="14" fill="#1B6B35">ESPALDA</text>
+<rect x="150" y="490" width="540" height="26" rx="13" fill="#FFFFFF" stroke="#1B6B35" stroke-width="2"/>
+<text x="420" y="508" text-anchor="middle" font-family="Manrope" font-weight="800" font-size="13" fill="#111111">${esc(`${prendaTxt()} ${M.nombre} · ${r.L.nombre} (${r.L.tecnica}) · ${NIVELES[S.nivel].nombre} · Diseño de muestra`)}</text>
+<rect y="530" width="840" height="90" fill="#1B6B35"/>
+${logo ? `<rect x="18" y="542" width="160" height="66" rx="12" fill="#FFFFFF"/><image href="${logo}" x="26" y="546" width="144" height="58"/>` : ''}
+<text x="${logo ? 196 : 24}" y="562" font-family="Manrope" font-weight="800" font-size="15" fill="#FFFFFF">© ${anio} AMORE Sublimación · Prohibida su copia o uso sin autorización</text>
+<text x="${logo ? 196 : 24}" y="584" font-family="Unbounded" font-weight="800" font-size="13" fill="#FFFFFF">EGRESADOS · ${PRECIOS.promo}</text>
+<text x="${logo ? 196 : 24}" y="604" font-family="Manrope" font-weight="800" font-size="13" fill="#FFFFFF" fill-opacity="0.88">amoresublimacion.com.ar · WhatsApp 11-5563-1332</text>
+</svg>`;
+    S.sel = sel;
+    const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+    const img = await cargarImg(url);
+    const cv = document.createElement('canvas'); cv.width = 1680; cv.height = 1240;
+    cv.getContext('2d').drawImage(img, 0, 0, 1680, 1240); URL.revokeObjectURL(url);
+    const blob = await new Promise(ok => cv.toBlob(ok, 'image/png'));
+    const nombre = `diseno-${S.modelo}-amore.png`, archivo = new File([blob], nombre, { type: 'image/png' });
+    const dl = window.claude && window.claude.use ? await window.claude.use('downloads') : null; // vista previa dentro de claude.ai
+    if (dl) { try { await dl.save({ filename: nombre, data: archivo }); } catch (err) {} return; }
+    if (navigator.canShare && navigator.canShare({ files: [archivo] }) && matchMedia('(pointer:coarse)').matches) {
+      try { await navigator.share({ files: [archivo], title: 'Mi diseño AMORE' }); return; } catch (err) { if (err.name === 'AbortError') return; }
+    }
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = nombre;
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  } catch (err) { alert('No se pudo armar la imagen. Probá sacar una captura de pantalla.'); }
+  finally { btn.textContent = 'Descargar diseño'; btn.disabled = false; }
+}
+
+$('#cant').value = S.cant;
+todo();
+if (document.fonts) document.fonts.ready.then(() => { S.els.forEach(ajustar); pintarLienzo(); pintarElementos(); });
+</script>
+</body>
+</html>
