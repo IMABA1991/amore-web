@@ -29,6 +29,7 @@
 .seg{display:inline-flex;border:2px solid #1B6B35;border-radius:999px;overflow:hidden;background:#FFFFFF}
 .seg button{font:inherit;font-weight:800;font-size:14px;border:0;background:none;padding:9px 14px;cursor:pointer;color:#111111;min-height:40px}
 .seg button[aria-pressed=true]{background:#1B6B35;color:#FFFFFF}
+.seg button:disabled{color:#AAAAAA;cursor:not-allowed}
 .dz-tip{margin:0;font-size:13px;color:#555555;text-align:center}
 .dz-panel{display:flex;flex-direction:column;gap:22px;min-width:0}
 .paso{background:#FFFFFF;padding:20px;display:flex;flex-direction:column;gap:14px}
@@ -170,17 +171,14 @@ html{scrollbar-width:auto;scrollbar-color:#1B6B35 #E3F1E5}
 </div>
 <div class="modelos" id="modelos"></div>
 <div class="seg" role="group" aria-label="Prenda" style="align-self:flex-start"><button type="button" data-prenda="campera" aria-pressed="true">Campera</button><button type="button" data-prenda="buzo" aria-pressed="false">Buzo</button></div>
+<span class="nota" id="prenda-nota"></span>
 </section>
 
 <section class="paso card" aria-labelledby="p2">
 <h2 id="p2"><span class="n">2</span>Colores del curso</h2>
 <p class="aviso-linea" id="aviso-colores"></p>
 <div>
-<p class="nombre-color" style="margin-bottom:8px">Combinaciones rápidas</p>
-<div class="chips" id="gamas"></div>
-</div>
-<div>
-<p class="nombre-color" style="margin-bottom:8px">O elegí parte por parte</p>
+<p class="nombre-color" style="margin-bottom:8px">Elegí el color de cada parte</p>
 <div class="chips" id="zonas"></div>
 </div>
 <div class="paleta" id="paleta"></div>
@@ -361,7 +359,7 @@ const MODELOS = {
     ]
   },
   college: {
-    nombre: 'College', tipo: 'college', gamaDeportiva: 2,
+    nombre: 'College', tipo: 'college', soloCampera: true, gamaDeportiva: 2,
     zonas: [['cuerpo','Cuerpo',0,'#6F6F72'],['mangas','Mangas',1,'#FFFFFF'],['punos','Cuello, puños y cintura',0,'#6F6F72'],['rayas','Rayas',1,'#FFFFFF']],
     f: { cuerpo:'cuerpo', mangas:'mangas', punos:'punos', cintura:'punos', cuello:'punos' },
     rayas: { k:'rayas', n:2 }, capas: []
@@ -425,6 +423,8 @@ function filtros(s) {
 // Dibuja una vista completa. s = sufijo para que los id no choquen
 function dibujar(vista, mk, col, s, conEls, marca) {
   const M = MODELOS[mk], c = k => col[k], F = M.f, atras = vista === 'espalda';
+  // Campera: cierre adelante. Buzo: sin cierre y con bolsillo canguro. College es siempre campera.
+  const tipo = M.tipo === 'college' ? 'college' : (S.prenda === 'buzo' ? 'pull' : 'zip');
   const cuerpo = atras ? G.cuerpoB : G.cuerpo;
   const capucha = M.tipo !== 'college';
   let o = `<defs>
@@ -459,10 +459,10 @@ ${filtros(s)}</defs>`;
     o += `<path d="${d}" fill="none" stroke="${TINTA}" stroke-width="3" stroke-linejoin="round"/>`;
   }
   if (!atras) {
-    if (M.tipo === 'pull') {
-      o += `<path d="${G.bolsillo}" fill="${c(F.bolsillo)}" stroke="${TINTA}" stroke-width="2.6" stroke-linejoin="round"/><path d="M152,298 L248,298" stroke="rgba(0,0,0,.18)" stroke-width="1.6" stroke-dasharray="4 3"/>`;
+    if (tipo === 'pull') {
+      o += `<path d="${G.bolsillo}" fill="${c(F.bolsillo || F.cuerpo)}" stroke="${TINTA}" stroke-width="2.6" stroke-linejoin="round"/><path d="M152,298 L248,298" stroke="rgba(0,0,0,.18)" stroke-width="1.6" stroke-dasharray="4 3"/>`;
     } else {
-      const y0 = M.tipo === 'college' ? 98 : 102;
+      const y0 = tipo === 'college' ? 98 : 102;
       o += `<path d="M200,${y0} V404" stroke="${TINTA}" stroke-width="3.2"/><path d="M200,${y0} V404" stroke="rgba(255,255,255,.35)" stroke-width="1" stroke-dasharray="2 2"/><rect x="196" y="${y0}" width="8" height="15" rx="2.5" fill="#C9C9C9" stroke="${TINTA}" stroke-width="2"/>`;
       o += `<g stroke="rgba(0,0,0,.28)" stroke-width="2.2" stroke-linecap="round">${ambos('M140,300 L148,350', '')}</g>`;
     }
@@ -588,7 +588,6 @@ function pintarColores() {
   $('#aviso-colores').innerHTML = S.linea === 'deportiva'
     ? '<b>Línea Deportiva (frisado):</b> solo tonos claros o pastel. No se puede sublimar sobre tela oscura.'
     : '<b>Línea Premium (algodón):</b> va bordada, así que también se puede en colores oscuros.';
-  $('#gamas').innerHTML = GAMAS[S.linea].map((g, i) => `<button type="button" class="chip-btn gama" data-g="${i}">${g[1].map(h => `<span class="punto" style="background:${h}"></span>`).join('')}${g[0]}</button>`).join('');
   $('#zonas').innerHTML = M.zonas.map(z => `<button type="button" class="chip-btn" data-z="${z[0]}" aria-pressed="${z[0] === S.zona}"><span class="punto" style="background:${col[z[0]]}"></span>${z[1]}</button>`).join('');
   const act = col[S.zona];
   $('#paleta').innerHTML = pal.map(p => `<button type="button" data-c="${p[1]}" title="${p[0]}" aria-label="${p[0]}" aria-pressed="${p[1].toLowerCase() === act.toLowerCase()}" style="background:${p[1]}"></button>`).join('');
@@ -630,7 +629,10 @@ function pintarElementos() {
 function pintarBotones() {
   document.querySelectorAll('[data-vista]').forEach(b => b.setAttribute('aria-pressed', b.dataset.vista === S.vista));
   document.querySelectorAll('[data-linea]').forEach(b => b.setAttribute('aria-pressed', b.dataset.linea === S.linea));
-  document.querySelectorAll('[data-prenda]').forEach(b => b.setAttribute('aria-pressed', b.dataset.prenda === S.prenda));
+  const solo = MODELOS[S.modelo].soloCampera;
+  if (solo) S.prenda = 'campera';
+  document.querySelectorAll('[data-prenda]').forEach(b => { b.setAttribute('aria-pressed', b.dataset.prenda === S.prenda); b.disabled = solo && b.dataset.prenda === 'buzo'; });
+  $('#prenda-nota').textContent = solo ? `El modelo ${MODELOS[S.modelo].nombre} viene solo en campera.` : 'Campera: con cierre adelante. Buzo: sin cierre y con bolsillo canguro.';
   document.querySelectorAll('[data-nivel]').forEach(b => b.setAttribute('aria-pressed', b.dataset.nivel === S.nivel));
   $('#nivel-talles').textContent = NIVELES[S.nivel].talles;
 }
@@ -775,16 +777,14 @@ document.addEventListener('click', ev => {
   if (b.dataset.vista) { S.vista = b.dataset.vista; pintarBotones(); pintarLienzo(); }
   else if (b.dataset.linea) cambiarLinea(b.dataset.linea);
   else if (b.dataset.nivel) { S.nivel = b.dataset.nivel; S.els.forEach(ajustar); pintarBotones(); pintarLienzo(); pintarElementos(); cotizar(); }
-  else if (b.dataset.prenda) { S.prenda = b.dataset.prenda; pintarBotones(); cotizar(); }
+  else if (b.dataset.prenda) {
+    if (b.dataset.prenda === 'buzo' && MODELOS[S.modelo].soloCampera) return;
+    S.prenda = b.dataset.prenda; pintarBotones(); pintarLienzo(); pintarModelos(); cotizar();
+  }
   else if (b.dataset.m) {
     S.modelo = b.dataset.m;
     S.els.forEach(e => { const p = posiciones(e.vista).find(q => q[0] === e.pos); if (p) { e.x = p[2]; e.y = p[3]; } });
     todo();
-  }
-  else if (b.dataset.g) {
-    const g = GAMAS[S.linea][+b.dataset.g][1], col = colActual();
-    for (const z of MODELOS[S.modelo].zonas) if (z[2] >= 0) col[z[0]] = g[z[2]];
-    pintarLienzo(); pintarModelos(); pintarColores(); cotizar();
   }
   else if (b.dataset.z) { S.zona = b.dataset.z; pintarColores(); }
   else if (b.dataset.c) { colActual()[S.zona] = b.dataset.c; pintarLienzo(); pintarModelos(); pintarColores(); cotizar(); }
