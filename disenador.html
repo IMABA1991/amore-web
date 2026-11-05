@@ -162,7 +162,7 @@ html{scrollbar-width:auto;scrollbar-color:#1B6B35 #E3F1E5}
 <section class="paso card" aria-labelledby="p1">
 <h2 id="p1"><span class="n">1</span>Línea, nivel y modelo</h2>
 <div class="lineas" role="group" aria-label="Línea">
-<button type="button" data-linea="deportiva" aria-pressed="true"><b>Línea Deportiva</b><span>Frisado, sublimado a todo color</span></button>
+<button type="button" data-linea="deportiva" aria-pressed="true"><b>Línea Deportiva</b><span>Frisado en tonos claros, estampas a todo color</span></button>
 <button type="button" data-linea="premium" aria-pressed="false"><b>Línea Premium</b><span>Algodón, bordado con hilo y relieve</span></button>
 </div>
 <div class="campo">Nivel del curso
@@ -267,14 +267,23 @@ html{scrollbar-width:auto;scrollbar-color:#1B6B35 #E3F1E5}
 const PRECIOS = {
   vigencia: 'noviembre de 2026',
   lineas: {
-    deportiva: { nombre: 'Línea Deportiva', tela: 'frisado', tecnica: 'sublimado', jardin: 90000,  primaria: 100000, secundaria: 100000 },
-    premium:   { nombre: 'Línea Premium',   tela: 'algodón', tecnica: 'bordado',   jardin: 140000, primaria: 145000, secundaria: 145000 }
+    deportiva: { nombre: 'Línea Deportiva', tela: 'frisado', tecnica: 'sublimado' },
+    premium:   { nombre: 'Línea Premium',   tela: 'algodón', tecnica: 'bordado' }
+  },
+  // Combo (campera o buzo + remera o chomba, mismo precio) por modelo, tal cual "Precios de venta x proveedor" (Finanzas, 10/10/2026).
+  // [Jardín, Primaria y secundaria]
+  combos: {
+    clasica:   { deportiva: [90000, 100000],  premium: [135000, 140000] },  // Modelo 2 Franjas
+    tricolor:  { deportiva: [90000, 100000],  premium: [135000, 140000] },  // Modelo 3 Colores
+    college:   { deportiva: [100000, 110000], premium: [140000, 145000] },  // Modelo Universitario
+    sport:     { deportiva: [100000, 110000], premium: [145000, 150000] },  // Modelo 4 Cortes
+    contraste: { deportiva: [110000, 120000], premium: [145000, 150000] }   // Modelo Combinado
   },
   // Premium: 4 bordados en la campera que se repiten en la remera/chomba (8 en el combo).
   // Cada bordado extra chico va en las dos prendas: $5.000 por prenda = $10.000 por combo.
   // Tope de cada bordado: 25 × 25 cm. Más de 10 cm de alto = bordado grande, se cotiza aparte.
   bordado: { incluidos: 4, extraPorPrenda: 5000, prendas: 2, maxAncho: 25, maxAlto: 25, altoNormal: 10 },
-  sublimado: { maxLado: 36 },                                        // cm por estampa (plancha 38×38)
+  sublimado: { maxLado: 36, incluidas: 4 },  // 4 estampas por prenda; las extra se cotizan aparte                                        // cm por estampa (plancha 38×38)
   bonificados: {
     minimoCombos: 10, hasta: '31 de diciembre de 2026',
     porCurso: ['Bandera del curso de 3 m x 1,50 m', 'Un combo para sortear'],
@@ -285,7 +294,7 @@ const PRECIOS = {
   whatsapp: '5491155631332'
 };
 const NIVELES = {
-  jardin:     { nombre: 'Jardín',     talles: 'Talles 4 al 16',  anchoRef: 40 },  // ancho de pecho de referencia (cm) para la escala
+  jardin:     { nombre: 'Jardín',     talles: 'Talles 2 al 16',  anchoRef: 40 },  // ancho de pecho de referencia (cm) para la escala
   primaria:   { nombre: 'Primaria',   talles: 'Talles 4 al 3XL', anchoRef: 47 },
   secundaria: { nombre: 'Secundaria', talles: 'Talles 4 al 3XL', anchoRef: 57 }
 };
@@ -508,7 +517,7 @@ const cm = v => Math.round(v / U());
 const posiciones = vista => {
   const cap = MODELOS[S.modelo].tipo !== 'college';
   return vista === 'frente'
-    ? [['pechoIzq','Pecho izquierdo',244,152,30,16],['pechoDer','Pecho derecho',156,152,30,16],['centro','Centro del pecho',200,190,80,28],['manga','Manga',80,226,24,11]]
+    ? [['pechoIzq','Pecho izquierdo',244,152,30,11],['pechoDer','Pecho derecho',156,152,30,11],['centro','Centro del pecho',200,190,80,28],['manga','Manga',80,226,24,11]]
     : [['arriba','Espalda arriba',200,cap ? 190 : 116,90,16],['completa','Espalda centro',200,cap ? 252 : 206,110,36],['abajo','Espalda abajo',200,336,110,22]];
 };
 let idSig = 1;
@@ -591,9 +600,11 @@ function textoTope(e) {
 const maxEstirado = e => Math.max(1, limites(e).h * U() / (e.t * 1.1));
 function alTope(e) { const L = limites(e); return anchoEl(e) / U() >= L.w - 0.6 || altoEl(e) / U() >= L.h - 0.6; }
 
-S.els.push(nuevoTexto('frente', 'pechoIzq', 'Sofi', 'Pacifico'));
+// Diseño de ejemplo con los 4 de siempre: curso en el pecho, EGRESADOS, 2027 y el nombre abajo en la espalda
+S.els.push(nuevoTexto('frente', 'pechoIzq', '6° A', 'Unbounded'));
 S.els.push(nuevoTexto('espalda', 'arriba', 'EGRESADOS', 'Graduate'));
 S.els.push(nuevoTexto('espalda', 'completa', '2027', 'Graduate'));
+S.els.push(nuevoTexto('espalda', 'abajo', 'Sofi', 'Pacifico'));
 S.els.forEach(ajustar);
 
 const esc = t => String(t).replace(/[&<>"]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]));
@@ -648,7 +659,7 @@ const nombrePos = e => (posiciones(e.vista).find(p => p[0] === e.pos) || [0, 'A 
 function pintarElementos() {
   const L = limites();
   $('#aviso-tam').innerHTML = S.linea === 'deportiva'
-    ? `Cada estampa sublimada mide como máximo <b>${L.w} × ${L.h} cm</b>. Para algo más grande se usan varias estampas separadas, por ejemplo "EGRESADOS" arriba y "2027" abajo.`
+    ? `Van <b>${PRECIOS.sublimado.incluidas} estampas incluidas</b> por prenda. Cada estampa sublimada mide como máximo <b>${L.w} × ${L.h} cm</b>; para algo más grande se usan varias estampas separadas, por ejemplo "EGRESADOS" arriba y "2027" abajo.`
     : `Van <b>${PRECIOS.bordado.incluidos} bordados incluidos</b> en la campera, que se repiten en la remera o chomba. Cada bordado extra suma ${plata(PRECIOS.bordado.extraPorPrenda)} por prenda (${plata(extraCombo())} por combo). Cada bordado mide hasta ${PRECIOS.bordado.maxAncho} × ${PRECIOS.bordado.maxAlto} cm; si pasa los ${PRECIOS.bordado.altoNormal} cm de alto es un bordado grande y se cotiza aparte.`;
   $('#lista-el').innerHTML = S.els.map((e, i) => `<button type="button" data-e="${i}" aria-pressed="${i === S.sel}">${e.tipo === 'img' ? `<img src="${e.src}" alt="">` : `<span class="punto" style="background:${colorTexto(e)};width:34px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;color:${claro(colorTexto(e)) ? '#111' : '#fff'}">T</span>`}<span style="min-width:0;display:flex;flex-direction:column"><span class="tx">${e.tipo === 'img' ? esc(e.nombre) : esc(e.texto)}</span><span class="sub">${e.vista === 'frente' ? 'Frente' : 'Espalda'} · ${nombrePos(e)} · ${cm(anchoEl(e))} × ${cm(altoEl(e))} cm${revisarLogo(e) ? ` · <b style="color:#8B0000">${marcaRevisar(e)}</b>` : ''}</span></span></button>`).join('')
     || '<p class="nota">Todavía no agregaste nada.</p>';
@@ -698,7 +709,8 @@ const prendaTxt = () => S.prenda === 'campera' ? 'Campera' : 'Buzo';
 function bonificados() { return { aplica: S.cant >= PRECIOS.bonificados.minimoCombos, falta: Math.max(0, PRECIOS.bonificados.minimoCombos - S.cant) }; }
 function calcular() {
   const L = PRECIOS.lineas[S.linea];
-  const det = [[`${prendaTxt()} ${MODELOS[S.modelo].nombre}, ${COMBOS[S.combo]} (${NIVELES[S.nivel].nombre})`, L[S.nivel]]];
+  const base = PRECIOS.combos[S.modelo][S.linea][S.nivel === 'jardin' ? 0 : 1];
+  const det = [[`${prendaTxt()} ${MODELOS[S.modelo].nombre}, ${COMBOS[S.combo]} (${NIVELES[S.nivel].nombre})`, base]];
   let extras = 0;
   if (S.linea === 'premium') {
     extras = Math.max(0, S.els.length - PRECIOS.bordado.incluidos);
@@ -718,9 +730,14 @@ function cotizar() {
     const grandes = S.els.filter(bordadoGrande).length, complejos = S.els.filter(logoComplejo).length;
     if (grandes) d += `<li class="revisar"><span>${grandes === 1 ? 'Un bordado grande' : grandes + ' bordados grandes'} (más de ${PRECIOS.bordado.altoNormal} cm de alto): se cotiza aparte</span><span>a cotizar</span></li>`;
     if (complejos) d += `<li class="revisar"><span>${complejos === 1 ? 'Un logo a revisar' : complejos + ' logos a revisar'}: puede cambiar el precio o el diseño</span><span>a confirmar</span></li>`;
-  } else d += `<li><span>Estampas sublimadas</span><span>incluidas</span></li>`;
+  } else {
+    const inc = PRECIOS.sublimado.incluidas, extra = Math.max(0, S.els.length - inc);
+    d += `<li><span>Estampas incluidas (se repiten en la ${S.combo})</span><span>${Math.min(S.els.length, inc)} de ${inc}</span></li>`;
+    if (extra) d += `<li class="revisar"><span>${extra === 1 ? 'Una estampa extra' : extra + ' estampas extra'}: se cotiza aparte</span><span>a cotizar</span></li>`;
+  }
+  d += `<li><span>Diseño del curso</span><span>sin cargo</span></li>`;
   $('#p-detalle').innerHTML = d;
-  const B = PRECIOS.bonificados, items = [...B.porCurso, B.porCombo + ' (una por combo)', 'Diseño del curso'];
+  const B = PRECIOS.bonificados, items = [...B.porCurso, B.porCombo + ' (una por combo)'];
   $('#bonif').innerHTML = r.bonif.aplica
     ? `<b>Sin cargo para tu curso:</b><ul>${items.map(x => `<li>${esc(x)}</li>`).join('')}</ul><span>Confirmando hasta el ${B.hasta}. <a href="legales.html#promociones">Ver condiciones</a></span>`
     : `<b>Beneficios de lanzamiento:</b> con ${B.minimoCombos} combos o más por curso, confirmados hasta el ${B.hasta}, suman sin cargo bandera del curso, un combo para sortear y una remera de gimnasia por combo. <b>Te faltan ${r.bonif.falta} combo${r.bonif.falta > 1 ? 's' : ''}.</b> <a href="legales.html#promociones">Ver condiciones</a>`;
@@ -735,7 +752,7 @@ Modelo: ${prendaTxt()} ${M.nombre}, ${COMBOS[S.combo]}
 Línea: ${r.L.nombre} (${r.L.tela}, ${r.L.tecnica})
 Nivel: ${NIVELES[S.nivel].nombre}
 Colores: ${M.zonas.map(z => `${z[1]}: ${nombreColor(col[z[0]])}`).join(' · ')}
-${els ? 'Diseños:\n' + els + '\n' : ''}Cantidad: ${S.cant} combos
+${els ? 'Diseños:\n' + els + '\n' : ''}${S.linea === 'deportiva' && S.els.length > PRECIOS.sublimado.incluidas ? `ESTAMPAS EXTRA: ${S.els.length - PRECIOS.sublimado.incluidas}, COTIZAR APARTE\n` : ''}Cantidad: ${S.cant} combos
 Precio: ${plata(r.unidad)} por combo, total ${plata(r.total)}${r.bonif.aplica ? `\nSin cargo: ${PRECIOS.bonificados.porCurso.join(', ').toLowerCase()} y una remera de gimnasia por combo` : ''}
 Te mando la imagen del diseño.`;
 }
