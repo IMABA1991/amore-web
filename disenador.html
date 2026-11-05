@@ -517,8 +517,32 @@ function nuevoTexto(vista, pos, texto, fuente) {
   return { id: idSig++, tipo: 'texto', vista, pos, x: p[2], y: p[3], t: p[5], texto, fuente, color: '', borde: '', auto: true, autoB: true };
 }
 // Colores automáticos del texto: oscuros en sublimado (el blanco no se imprime), blancos en bordado
-const colorTexto = e => e.auto ? (S.linea === 'deportiva' ? '#1C2747' : '#FFFFFF') : e.color;
-const bordeTexto = e => e.autoB ? (S.linea === 'premium' && e.vista === 'espalda' ? '#1A1A1A' : '') : e.borde;
+// Color de la tela debajo de un punto del dibujo (para elegir un color de letra que se lea)
+const sondaSVG = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+sondaSVG.setAttribute('style', 'position:absolute;width:0;height:0;overflow:hidden');
+const sonda = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+sondaSVG.appendChild(sonda);
+function telaEn(x, y) {
+  const M = MODELOS[S.modelo], col = colActual();
+  if (!sondaSVG.isConnected) document.body.appendChild(sondaSVG);
+  const pt = sondaSVG.createSVGPoint(); pt.x = x; pt.y = y;
+  for (const k of [...M.capas].reverse()) {
+    if (k.clip === 'mangas') continue;
+    sonda.setAttribute('d', k.d);
+    if (sonda.isPointInFill(pt)) return col[k.k];
+  }
+  return col[M.f.cuerpo];
+}
+// Letra automática: en sublimado azul marino (el blanco no se imprime); en bordado blanca o marino según la tela
+const colorTexto = e => {
+  if (!e.auto) return e.color;
+  if (S.linea === 'deportiva') return '#1C2747';
+  // promedio de la tela en varios puntos del texto
+  const w = anchoEl(e), h = altoEl(e); let suma = 0, n = 0;
+  for (const fx of [-0.4, -0.2, 0, 0.2, 0.4]) for (const fy of [-0.3, 0, 0.3]) { suma += luz(telaEn(e.x + fx * w, e.y + fy * h)); n++; }
+  return suma / n > 150 ? '#1C2747' : '#FFFFFF';
+};
+const bordeTexto = () => '';   // AMORE no ofrece borde en las letras
 
 // Tope de tamaño por línea: 36 × 36 cm por estampa en sublimado; 25 × 25 cm por bordado
 function limites(e) {
@@ -634,11 +658,10 @@ function pintarElementos() {
   const pos = posiciones(e.vista), todos = PALETAS.premium;
   let h = '';
   if (e.tipo === 'texto') {
-    const ct = colorTexto(e), bt = bordeTexto(e);
+    const ct = colorTexto(e);
     h += `<label class="campo">Texto<input type="text" id="ed-texto" maxlength="24" value="${esc(e.texto)}"></label>
 <div class="fila"><label class="campo">Letra<select id="ed-fuente">${FUENTES.map(f => `<option value="${f[0]}"${f[0] === e.fuente ? ' selected' : ''}>${f[1]}</option>`).join('')}</select></label>
-<label class="campo">Color<select id="ed-color">${todos.map(p => `<option value="${p[1]}"${p[1] === ct ? ' selected' : ''}>${p[0]}</option>`).join('')}</select></label></div>
-<label class="campo">Borde de la letra<select id="ed-borde"><option value="">Sin borde</option>${todos.map(p => `<option value="${p[1]}"${p[1] === bt ? ' selected' : ''}>${p[0]}</option>`).join('')}</select></label>`;
+<label class="campo">Color<select id="ed-color">${todos.map(p => `<option value="${p[1]}"${p[1] === ct ? ' selected' : ''}>${p[0]}</option>`).join('')}</select></label></div>`;
     if (S.linea === 'deportiva' && luz(ct) > 235) h += `<p class="aviso-hilos">En sublimado el blanco no se imprime: esa parte queda del color de la tela.</p>`;
   }
   h += `<div class="fila"><label class="campo">Lado<select id="ed-vista"><option value="frente"${e.vista === 'frente' ? ' selected' : ''}>Frente</option><option value="espalda"${e.vista === 'espalda' ? ' selected' : ''}>Espalda</option></select></label>
@@ -866,7 +889,6 @@ document.addEventListener('change', async ev => {
   else if ((t.id === 'ed-tam' || t.id === 'ed-alto') && e) pintarElementos();
   else if (t.id === 'ed-fuente' && e) { e.fuente = t.value; ajustar(e); pintarLienzo(); pintarElementos(); }
   else if (t.id === 'ed-color' && e) { e.color = t.value; e.auto = false; pintarLienzo(); pintarElementos(); }
-  else if (t.id === 'ed-borde' && e) { e.borde = t.value; e.autoB = false; pintarLienzo(); }
   else if (t.id === 'ed-vista' && e) {
     e.vista = t.value; const p = posiciones(e.vista)[0]; e.pos = p[0]; e.x = p[2]; e.y = p[3];
     S.vista = e.vista; pintarBotones(); pintarLienzo(); pintarElementos(); cotizar();
