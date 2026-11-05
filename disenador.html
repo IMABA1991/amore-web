@@ -501,7 +501,7 @@ const U = () => ANCHO_CUERPO / NIVELES[S.nivel].anchoRef;
 const FUENTES = [['Graduate','College'],['Unbounded','Moderna'],['Pacifico','Cursiva'],['Manrope','Simple']];
 const ANCHO_LETRA = { Graduate: 0.7, Unbounded: 0.74, Pacifico: 0.56, Manrope: 0.6 };
 const anchoEl = e => e.tipo === 'img' ? e.w : e.t * (ANCHO_LETRA[e.fuente] || 0.65) * Math.max(1, e.texto.length);
-const altoEl = e => e.tipo === 'img' ? e.w / e.ar : e.t * 1.1;
+const altoEl = e => e.tipo === 'img' ? e.w / e.ar : e.t * 1.1 * (e.sy || 1);   // sy = estirado en alto de la letra
 const cm = v => Math.round(v / U());
 
 const posiciones = vista => {
@@ -536,8 +536,30 @@ function ajustar(e) {
   if (e.tipo === 'img') e.w = e.base; else e.t = e.base;
   const L = limites(e), w = anchoEl(e) / U(), h = altoEl(e) / U();
   const f = Math.min(1, L.w / w, L.h / h);
-  if (f < 0.999) { if (e.tipo === 'img') e.w = Math.floor(e.w * f); else e.t = Math.floor(e.t * f * 10) / 10; return true; }
+  if (e.tipo === 'texto') {
+    // primero el ancho (achica la letra), después el alto (achica el estirado y, si hace falta, la letra)
+    let cambio = false;
+    const fw = L.w / w; if (fw < 0.999) { e.t = Math.floor(e.t * fw * 10) / 10; cambio = true; }
+    let hh = altoEl(e) / U();
+    if (hh > L.h && (e.sy || 1) > 1) { e.sy = Math.max(1, e.sy * L.h / hh); hh = altoEl(e) / U(); cambio = true; }
+    if (hh > L.h + 0.01) { e.t = Math.floor(e.t * L.h / hh * 10) / 10; cambio = true; }
+    return cambio;
+  }
+  if (f < 0.999) { e.w = Math.floor(e.w * f); return true; }
   return false;
+}
+// Mensaje del tope: dice si se llegó al ancho o al alto, y cómo seguir
+function textoTope(e) {
+  const L = limites(e), ancho = anchoEl(e) / U() >= L.w - 0.6;
+  if (e.tipo === 'img') return S.linea === 'deportiva'
+    ? `Llegaste al máximo de ${L.w} × ${L.h} cm por estampa. Si querés algo más grande, sumá otra estampa separada.`
+    : 'Es el tamaño máximo para la espalda de este talle.';
+  const que = S.linea === 'deportiva' ? 'por estampa' : 'por bordado';
+  const alto = altoEl(e) / U() >= L.h - 0.6;
+  if (ancho && alto) return `Llegaste al máximo de ${L.w} × ${L.h} cm ${que}.`;
+  return ancho
+    ? `Llegaste al ancho máximo de ${L.w} cm ${que}. Las palabras largas llegan antes al ancho: para que la letra sea más alta (hasta ${L.h} cm), usá "Alto de la letra".`
+    : `Llegaste al alto máximo de ${L.h} cm ${que}.`;
 }
 function alTope(e) { const L = limites(e); return anchoEl(e) / U() >= L.w - 0.6 || altoEl(e) / U() >= L.h - 0.6; }
 
@@ -562,7 +584,8 @@ function elementosSVG(vista, s) {
     } else {
       const bc = bordeTexto(e);
       const b = bc ? ` stroke="${bc}" stroke-width="${(e.t * 0.14).toFixed(1)}" stroke-linejoin="round" paint-order="stroke"` : '';
-      o += `<text data-i="${i}" x="${e.x}" y="${e.y}" font-family="${e.fuente}" font-size="${e.t}" fill="${colorTexto(e)}"${b} text-anchor="middle" dominant-baseline="central"${f} style="${st}">${esc(e.texto)}</text>`;
+      const fil = bord ? ` filter="url(#fB${s})"` : '';
+      o += `<g clip-path="url(#todo${s})"${bord ? '' : ' style="mix-blend-mode:multiply"'}><text data-i="${i}" x="0" y="0" transform="translate(${e.x},${e.y}) scale(1,${e.sy || 1})" font-family="${e.fuente}" font-size="${e.t}" fill="${colorTexto(e)}"${b} text-anchor="middle" dominant-baseline="central"${fil} style="cursor:move">${esc(e.texto)}</text></g>`;
     }
   });
   return o;
@@ -617,7 +640,8 @@ function pintarElementos() {
   h += `<div class="fila"><label class="campo">Lado<select id="ed-vista"><option value="frente"${e.vista === 'frente' ? ' selected' : ''}>Frente</option><option value="espalda"${e.vista === 'espalda' ? ' selected' : ''}>Espalda</option></select></label>
 <label class="campo">Ubicación<select id="ed-pos">${pos.map(p => `<option value="${p[0]}"${p[0] === e.pos ? ' selected' : ''}>${p[1]}</option>`).join('')}${pos.some(p => p[0] === e.pos) ? '' : '<option selected>A mano</option>'}</select></label></div>
 <label class="campo"><span>Tamaño: <span id="ed-medida">${cm(anchoEl(e))} × ${cm(altoEl(e))} cm</span></span><input type="range" id="ed-tam" min="${e.tipo === 'img' ? 12 : 6}" max="${e.tipo === 'img' ? 200 : 60}" step="${e.tipo === 'img' ? 1 : 0.5}" value="${e.tipo === 'img' ? e.w : e.t}"></label>
-<p class="aviso-hilos${alTope(e) ? '' : ' oculto-x'}" id="ed-tope">${S.linea === 'deportiva' ? `Llegaste al máximo de ${L.w} × ${L.h} cm por estampa. Si querés algo más grande, sumá otra estampa separada.` : (e.tipo === 'img' ? 'Es el tamaño máximo para la espalda de este talle.' : `Llegaste al máximo de ${PRECIOS.bordado.maxAncho} × ${PRECIOS.bordado.maxAlto} cm por bordado.`)}</p>`;
+${e.tipo === 'texto' ? `<label class="campo"><span>Alto de la letra: <span id="ed-alto-txt">${Math.round((e.sy || 1) * 100)}%</span></span><input type="range" id="ed-alto" min="1" max="3" step="0.05" value="${e.sy || 1}"></label>` : ''}
+<p class="aviso-hilos${alTope(e) ? '' : ' oculto-x'}" id="ed-tope">${textoTope(e)}</p>`;
   if (e.tipo === 'img') {
     h += `<label class="check"><input type="checkbox" id="ed-fondo"${e.sinFondo ? ' checked' : ''}> Quitar fondo blanco</label>`;
     if (revisarLogo(e)) h += `<p class="aviso-revisar"><b>${e.complejo ? 'Logo con muchos detalles.' : 'Logo grande.'}</b> ${e.complejo ? 'Algunos logos no se pueden bordar igual o hay que simplificarlos.' : `Los bordados de más de ${PRECIOS.bordado.maxAncho} cm dependen del diseño.`} Lo revisamos y te confirmamos antes de producir.</p>`;
@@ -814,15 +838,23 @@ document.addEventListener('input', ev => {
     if (ajustar(e)) t.value = e.tipo === 'img' ? e.w : e.t;
     actualizarMedida(e); pintarLienzo(); cotizar();
   }
+  else if (t.id === 'ed-alto' && e) {
+    // estira la letra en alto sin pasarse del alto máximo
+    const maxSy = Math.max(1, limites(e).h * U() / (e.t * 1.1));
+    e.sy = Math.min(+t.value, maxSy);
+    if (+t.value > maxSy) t.value = e.sy;
+    actualizarMedida(e); pintarLienzo(); cotizar();
+  }
 });
 function actualizarMedida(e) {
   const m = $('#ed-medida'); if (m) m.textContent = `${cm(anchoEl(e))} × ${cm(altoEl(e))} cm`;
-  const tp = $('#ed-tope'); if (tp) tp.classList.toggle('oculto-x', !alTope(e));
+  const tp = $('#ed-tope'); if (tp) { tp.classList.toggle('oculto-x', !alTope(e)); tp.textContent = textoTope(e); }
+  const at = $('#ed-alto-txt'); if (at) at.textContent = Math.round((e.sy || 1) * 100) + '%';
 }
 document.addEventListener('change', async ev => {
   const t = ev.target, e = S.els[S.sel];
   if (t.id === 'combo') { S.combo = t.value; cotizar(); }
-  else if (t.id === 'ed-tam' && e) pintarElementos();
+  else if ((t.id === 'ed-tam' || t.id === 'ed-alto') && e) pintarElementos();
   else if (t.id === 'ed-fuente' && e) { e.fuente = t.value; ajustar(e); pintarLienzo(); pintarElementos(); }
   else if (t.id === 'ed-color' && e) { e.color = t.value; e.auto = false; pintarLienzo(); pintarElementos(); }
   else if (t.id === 'ed-borde' && e) { e.borde = t.value; e.autoB = false; pintarLienzo(); }
