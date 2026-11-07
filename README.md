@@ -1,7 +1,7 @@
 # amore-web
 
 Web de AMORE Sublimación. Hoy se publica en la dirección de prueba de GitHub Pages:
-https://imaba1991.github.io/amore-web/
+https://amoresublimacion.com.ar/
 
 ## SEO ya aplicado
 - Título y descripción propios en cada página, idioma español, un título principal por página.
@@ -10,7 +10,7 @@ https://imaba1991.github.io/amore-web/
 - Ficha del negocio para Google (datos estructurados LocalBusiness) en `index.html`.
 
 ## Pendiente para cuando se conecte amoresublimacion.com.ar
-1. Reemplazar `https://imaba1991.github.io/amore-web/` por `https://amoresublimacion.com.ar/` en todas las páginas (vista previa y ficha del negocio).
+1. Reemplazar `https://amoresublimacion.com.ar/` por `https://amoresublimacion.com.ar/` en todas las páginas (vista previa y ficha del negocio).
 2. Agregar en cada página la dirección oficial (`<link rel="canonical">`).
 3. Crear `sitemap.xml`, `robots.txt` y `CNAME`.
 4. Dar de alta el dominio en Google Search Console y enviar el sitemap.
