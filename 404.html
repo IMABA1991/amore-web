@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>AMORE Sublimación</title>
+<script>
+/* Links viejos de la tienda anterior (Tiendanube) -> página nueva equivalente.
+   Funciona en la dirección de prueba (/amore-web/) y en amoresublimacion.com.ar. */
+(function () {
+  var base = location.pathname.indexOf('/amore-web/') === 0 ? '/amore-web/' : '/';
+  var p = decodeURIComponent(location.pathname.slice(base.length)).toLowerCase().replace(/\/+$/, '');
+  var tiene = function (palabras) { return palabras.some(function (w) { return p.indexOf(w) !== -1; }); };
+  var destino = 'index.html';
+
+  if (p === '' || p === 'index') destino = 'index.html';
+  else if (tiene(['quienes-somos'])) destino = 'quienes-somos.html';
+  else if (tiene(['guia-de-talles', 'talles'])) destino = 'talles.html';
+  else if (tiene(['preguntas-frecuentes'])) destino = 'egresados.html';
+  else if (tiene(['contacto'])) destino = 'index.html';
+  else if (tiene(['egresad', 'campera', 'chomba', 'buzo'])) destino = 'egresados.html';
+  else if (tiene(['productos/', 'regalos', 'revendedores', 'fechas-especiales', 'productos'])) {
+    destino = 'regalos.html';
+    if (tiene(['bebe', 'body', 'babero', 'babita', 'ajuar', 'toallon'])) destino += '#bebes';
+    else if (tiene(['navidad', 'pino', 'pascuas'])) destino += '#navidad';
+    else if (tiene(['mate', 'termo', 'yerbera'])) destino += '#mates';
+    else if (tiene(['taza', 'jarro', 'chop', 'copa', 'vaso', 'cantimplora', 'hoppy', 'azucarera'])) destino += '#tazas';
+    else if (tiene(['madera', 'portarretrato', 'rompecabeza', 'romprecabeza', 'cuadro', 'domino', 'tateti', 'memo-test', 'cartel', 'cajon', 'caja-'])) destino += '#madera';
+    else if (tiene(['remera', 'musculosa', 'sudadera', 'gorra', 'delantal', 'morral', 'rinonera', 'bolso', 'bolsa', 'billetera', 'manopla', 'funda'])) destino += '#textil';
+    else if (tiene(['llavero', 'pin-', 'clip', 'posavaso', 'puas', 'credencial', 'credemcial', 'medalla', 'iman', 'placa'])) destino += '#souvenirs';
+  }
+  location.replace(base + destino);
+})();
+</script>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #FFFFFF; color: #111111; display: flex; min-height: 100vh; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+  a { color: #1B6B35; font-weight: 700; }
+</style>
+</head>
+<body>
+<div>
+<p>Esta página cambió de lugar.</p>
+<p><a href="/">Ir al inicio de AMORE Sublimación</a></p>
+</div>
+</body>
+</html>
