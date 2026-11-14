@@ -100,3 +100,15 @@ details summary{cursor:pointer}
  .navlinks a{font-size:13px}
  .top .btn svg{display:none}
 }
+/* Buscador de Regalos */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+.buscador-barra{position:sticky;top:0;z-index:15;background:#FFFFFF;border-bottom:2px solid #1B6B35;padding:10px 0;transition:top .25s ease}
+.buscador-barra .wrap{display:flex;flex-direction:column;gap:6px}
+.buscador{display:flex;align-items:center;gap:10px;background:#FFFFFF;border:2px solid #1B6B35;border-radius:999px;padding:0 8px 0 16px;min-height:52px;box-shadow:0 4px 0 #1B6B35;color:#1B6B35}
+.buscador input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:17px;color:#111111;height:48px}
+.buscador input::-webkit-search-cancel-button{display:none}
+.buscador:focus-within{box-shadow:0 4px 0 #1E961E;border-color:#1E961E}
+.buscador-borrar{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border:0;border-radius:50%;background:#E3F1E5;color:#1B6B35;cursor:pointer}
+.buscador-estado{margin:0;font-size:15px;font-weight:700;min-height:1px}
+.buscador-estado:empty{display:none}
+.buscador-borrar[hidden]{display:none}
